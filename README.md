@@ -8,9 +8,15 @@
 + Gunnar Wambaugh
 + Luis Almanzar
 
-## Simulator
+### Simulator
+#### Installation
+Requires MatPlotLib which can be installed by typing:
 
-## Therapy Games
+```bash
+sudo apt-get install python-matplotlib
+```
+
+### Therapy Games
 
 ### Folder Structure:
 * /AnimationController/: Holds all animation controller files.
