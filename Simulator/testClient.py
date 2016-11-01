@@ -1,11 +1,14 @@
 import socket
 
-host = "localhost"
-port = 1690
+host = '127.0.0.1'
+port = 3000
+BUFFER_SIZE = 1024
 
 primarySocket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
 primarySocket.bind((host, port))
 
-while 1:
-print primarySocket.recv(30)
+while(True):
+    data, addr = primarySocket.recvfrom(BUFFER_SIZE)
+    text = data.decode('ascii')
+    print ('received: {} from {}'.format(text, addr))
