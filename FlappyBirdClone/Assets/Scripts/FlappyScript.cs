@@ -13,7 +13,7 @@ public class FlappyScript : MonoBehaviour
     public float RotateUpSpeed = 1, RotateDownSpeed = 1;
     public GameObject IntroGUI, DeathGUI;
     public Collider2D restartButtonGameCollider;
-    public float VelocityPerJump = 3;
+    public float VelocityPerJump = 500;
     public float XSpeed = 1;
 
     // Use this for initialization
@@ -85,9 +85,10 @@ public class FlappyScript : MonoBehaviour
         //just jump up and down on intro screen
         if (GameStateManager.GameState == GameState.Intro)
         {
-            if (GetComponent<Rigidbody2D>().velocity.y < -1) //when the speed drops, give a boost
+           /* if (GetComponent<Rigidbody2D>().velocity.y < -1) //when the speed drops, give a boost
                 GetComponent<Rigidbody2D>().AddForce(new Vector2(0, GetComponent<Rigidbody2D>().mass * 5500 * Time.deltaTime)); //lots of play and stop 
                                                         //and play and stop etc to find this value, feel free to modify
+           */
         }
         else if (GameStateManager.GameState == GameState.Playing || GameStateManager.GameState == GameState.Dead)
         {
