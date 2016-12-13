@@ -133,7 +133,7 @@ public class FlappyScript : MonoBehaviour
                 degreesToAdd = 6 * RotateUpSpeed;
                 break;
             case FlappyYAxisTravelState.GoingDown:
-                degreesToAdd = -3 * RotateDownSpeed;
+                degreesToAdd = -2 * RotateDownSpeed;
                 break;
             default:
                 break;
@@ -167,13 +167,13 @@ public class FlappyScript : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D col)
     {
-        if (GameStateManager.GameState == GameState.Playing)
+        /*if (GameStateManager.GameState == GameState.Playing)
         {
             if (col.gameObject.tag == "Floor")
             {
                 FlappyDies();
             }
-        }
+        }*/
     }
 
     void FlappyDies()
