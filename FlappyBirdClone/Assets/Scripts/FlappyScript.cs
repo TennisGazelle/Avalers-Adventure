@@ -86,7 +86,7 @@ public class FlappyScript : MonoBehaviour
         if (GameStateManager.GameState == GameState.Intro)
         {
            /* if (GetComponent<Rigidbody2D>().velocity.y < -1) //when the speed drops, give a boost
-                GetComponent<Rigidbody2D>().AddForce(new Vector2(0, GetComponent<Rigidbody2D>().mass * 5500 * Time.deltaTime)); //lots of play and stop 
+                GetComponent<Rigidbody2D>().AddForce(new Vector2(0, GetComponent<Rigidbody2D>().mass * 5500 * Time.deltaTime)); //lots of play and stop
                                                         //and play and stop etc to find this value, feel free to modify
            */
         }
@@ -98,7 +98,7 @@ public class FlappyScript : MonoBehaviour
 
     bool WasTouchedOrClicked()
     {
-        if (Input.GetButtonUp("Jump") || Input.GetMouseButtonDown(0) || 
+        if (Input.GetButtonUp("Jump") || Input.GetMouseButtonDown(0) ||
             (Input.touchCount > 0 && Input.touches[0].phase == TouchPhase.Ended))
             return true;
         else
@@ -159,10 +159,12 @@ public class FlappyScript : MonoBehaviour
                 GetComponent<AudioSource>().PlayOneShot(ScoredAudioClip);
                 ScoreManagerScript.Score++;
             }
+            /*
             else if (col.gameObject.tag == "Pipe")
             {
                 FlappyDies();
             }
+            */
         }
     }
 
