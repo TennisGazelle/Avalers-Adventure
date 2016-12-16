@@ -29,12 +29,12 @@ effortfulSwallow = {
 mendelsohn = [
 	{
 		"amp" : 700,
-		"mean": 69,
+		"mean": 69-10,
 		"sd"  : 4.5,
 	},
 	{
 		"amp" : 800,
-		"mean": 76.7,
+		"mean": 76.7-10,
 		"sd"  : 7.8,	
 	}
 ]
@@ -54,10 +54,10 @@ def sawtoothCurve():
 def populateNoise():
 	# populate the noise array
 	for x in range(0,num_samples):
-		#noiseArray.append(random.uniform(1.875,7.5)) #look at video for small noise
+		noiseArray.append(random.uniform(1.875,7.5)) #look at video for small noise
 		noiseArray.append(1)
 		if x > 0:
-			noiseArray[x] = noiseArray[x-1]*0.2 + noiseArray[x]*0.8	
+			noiseArray[x] = noiseArray[x-1]*0.5 + noiseArray[x]*0.5
 
 
 def populateTypicalSwallow():
@@ -94,8 +94,8 @@ def populateMendelsohn():
 
 if __name__ == '__main__':
 	#populateTypicalSwallow()
-	populateEffortfulSwallow()
-	#populateMendelsohn()
+	#populateEffortfulSwallow()
+	populateMendelsohn()
 
 	print "Pure Data   |   Noise Data   |   Result"
 	for x in range(0,num_samples):
@@ -105,8 +105,8 @@ if __name__ == '__main__':
 	plt.ion()
 
 	data_buffer = [0] * 50
-	ax1=plt.axes()  
-	 
+	ax1=plt.axes()
+
 	# make plot
 	line, = plt.plot(data_buffer)
 	plt.ylim([0,100])
@@ -114,7 +114,7 @@ if __name__ == '__main__':
 	for i in range(0, len(combined)):
 		print "reupdating the axis"
 		# reupdate the y axises
-		ymin = float(min(data_buffer))-10
+		ymin = float(min(data_buffer))-1
 		ymax = float(max(data_buffer))+10
 		plt.ylim([ymin, ymax])
 
@@ -129,7 +129,7 @@ if __name__ == '__main__':
 		# draw the figure
 		plt.draw()
 		print "attempting to draw index: {} with new data point: {}".format(i, combined[i])
-		time.sleep(1)
+		time.sleep(.1)
 
 '''
 
@@ -157,4 +157,4 @@ if __name__ == '__main__':
 	#	plt.draw()
 	#	print "printing {}".format(x)
 	#	time.sleep(1)
-'''
+#'''
