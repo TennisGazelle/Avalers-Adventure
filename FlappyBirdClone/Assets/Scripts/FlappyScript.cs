@@ -19,7 +19,6 @@ public class FlappyScript : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-
     }
 
     FlappyYAxisTravelState flappyYAxisTravelState;
@@ -108,6 +107,10 @@ public class FlappyScript : MonoBehaviour
     void MoveBirdOnXAxis()
     {
         transform.position += new Vector3(Time.deltaTime * XSpeed, 0, 0);
+        /*if(transform.position.y <     Vector3 birdPosition = Vector3.zero
+        {
+          GetComponent<Rigidbody2D>().velocity = new Vector2(0, VelocityPerJump);
+        }*/
     }
 
     void BoostOnYAxis()
@@ -157,6 +160,7 @@ public class FlappyScript : MonoBehaviour
             if (col.gameObject.tag == "Pipeblank") //pipeblank is an empty gameobject with a collider between the two pipes
             {
                 GetComponent<AudioSource>().PlayOneShot(ScoredAudioClip);
+                Destroy(col.gameObject.transform.parent.gameObject); //remove coin
                 ScoreManagerScript.Score++;
             }
             /*

@@ -13,7 +13,7 @@ public class FloorMoveScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (transform.localPosition.x < -3.9f)
+        if (transform.localPosition.x < -8f)
         {
             transform.localPosition = new Vector3(0, transform.localPosition.y, transform.localPosition.z);
         }

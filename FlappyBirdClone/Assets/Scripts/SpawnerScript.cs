@@ -16,8 +16,12 @@ public class SpawnerScript : MonoBehaviour
         if (GameStateManager.GameState == GameState.Playing)
         {
             //random y position
-            float y = Random.Range(-1f, -1f);
-            GameObject go = Instantiate(SpawnObject, this.transform.position + new Vector3(0, y, 0), Quaternion.identity) as GameObject;
+            float y = Random.Range(0f, 0f);
+            GameObject go = Instantiate(SpawnObject, this.transform.position + new Vector3(coinCount*4, y, 0),
+            Quaternion.identity) as GameObject;
+            coinCount++;
+            //GetComponent<Renderer>().sortingLayerName = "Flappy";
+
         }
         Invoke("Spawn", Random.Range(timeMin, timeMax));
     }
@@ -25,6 +29,7 @@ public class SpawnerScript : MonoBehaviour
     private GameObject SpawnObject;
     public GameObject[] SpawnObjects;
 
-    public float timeMin = 1f;
+    public float timeMin = 2f;
     public float timeMax = 2f;
+    public float coinCount = 0;
 }
