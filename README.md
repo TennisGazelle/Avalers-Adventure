@@ -16,6 +16,12 @@ Requires MatPlotLib which can be installed by typing:
 sudo apt-get install python-matplotlib
 ```
 
+Running the simulator also requires python and python-tk which can be installed by typing:
+
+```bash
+sudo apt-get install python python-tk
+```
+
 ### Therapy Games
 
 ### Folder Structure:
