@@ -84,10 +84,9 @@ public class FlappyScript : MonoBehaviour
         //just jump up and down on intro screen
         if (GameStateManager.GameState == GameState.Intro)
         {
-           /* if (GetComponent<Rigidbody2D>().velocity.y < -1) //when the speed drops, give a boost
+           if (GetComponent<Rigidbody2D>().velocity.y < -1) //when the speed drops, give a boost
                 GetComponent<Rigidbody2D>().AddForce(new Vector2(0, GetComponent<Rigidbody2D>().mass * 5500 * Time.deltaTime)); //lots of play and stop
                                                         //and play and stop etc to find this value, feel free to modify
-           */
         }
         else if (GameStateManager.GameState == GameState.Playing || GameStateManager.GameState == GameState.Dead)
         {
