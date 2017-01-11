@@ -1,13 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class FloorMoveScript : MonoBehaviour
-{
+public class FloorMoveScript : AbstractGenerator {
     public GameObject[] FrontTrees;
     public GameObject[] MiddleTrees;
     public GameObject[] BackTrees;
-
-    public GameObject Destroyer;
 
     public Transform treeScaling;
 
@@ -17,8 +14,6 @@ public class FloorMoveScript : MonoBehaviour
 
     private float timeMin = 0.2f;
     private float timeMax = 1.0f;
-
-    private ArrayList AllElements = new ArrayList();
 
     // Use this for initialization
     void Start()
@@ -35,12 +30,7 @@ public class FloorMoveScript : MonoBehaviour
         }
         transform.Translate(-Time.deltaTime, 0, 0);
 
-        foreach (GameObject go in AllElements) {
-            if (go.transform.position.x < Destroyer.transform.position.x) {
-                Destroy(go);
-                AllElements.Remove(go);
-            }
-        }
+        RemoveUnnecessaryElements();
     }
 
     void SpawnTrees() {
