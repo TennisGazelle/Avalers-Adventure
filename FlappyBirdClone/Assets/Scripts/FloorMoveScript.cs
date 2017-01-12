@@ -2,6 +2,7 @@
 using System.Collections;
 
 public class FloorMoveScript : AbstractGenerator {
+
     public GameObject[] FrontTrees;
     public GameObject[] MiddleTrees;
     public GameObject[] BackTrees;
@@ -34,20 +35,10 @@ public class FloorMoveScript : AbstractGenerator {
     }
 
     void SpawnTrees() {
-        SpawnTreesAt(FrontTrees, ref frontTreePosition, 2.0f);
-        SpawnTreesAt(MiddleTrees, ref midTreePosition, Random.Range(1.2f,2.0f));
-        SpawnTreesAt(BackTrees, ref backTreePosition, Random.Range(0.8f,1.8f));
+        SpawnElementAt(FrontTrees, ref frontTreePosition, 2.0f, treeScaling);
+        SpawnElementAt(MiddleTrees, ref midTreePosition, Random.Range(1.2f,2.0f), treeScaling);
+        SpawnElementAt(BackTrees, ref backTreePosition, Random.Range(0.8f,1.8f), treeScaling);
 
         Invoke("SpawnTrees", Random.Range(timeMin, timeMax));
-    }
-
-    void SpawnTreesAt(GameObject[] arrayToRange, ref Vector3 newTreePosition, float changeInX) {
-        // make sure that we don't create too many trees out there
-        if (newTreePosition.x + changeInX < System.Math.Abs(transform.position.x)+20) {
-            GameObject obj = arrayToRange[Random.Range(0, arrayToRange.Length)];
-            GameObject go = Instantiate(obj, newTreePosition, Quaternion.identity, treeScaling) as GameObject;
-            AllElements.Add(go);
-            newTreePosition.x += changeInX;
-        }
     }
 }
