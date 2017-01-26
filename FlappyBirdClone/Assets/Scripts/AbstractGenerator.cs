@@ -27,4 +27,7 @@ public class AbstractGenerator : MonoBehaviour {
         }
     }
 
+    protected void SpawnBushesAt(GameObject[] arrayToDisplay, float changeInX){
+
+    }
 }

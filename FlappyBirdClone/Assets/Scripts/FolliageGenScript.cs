@@ -3,11 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class FolliageGenScript : AbstractGenerator {
-    public GameObject[] Bushes;
+    public GameObject[] LightBushes;
+    public GameObject[] DarkBushes;
+    public GameObject[] LittleLightBushes;
 
-	// Use this for initialization
-	void Start () {
-		
+    private float timeMin = 0.2f;
+    private float timeMax = 1.0f;
+
+    // Use this for initialization
+    void Start () {
+        SpawnBushes();
 	}
 	
 	// Update is called once per frame
@@ -16,7 +21,8 @@ public class FolliageGenScript : AbstractGenerator {
 	}
 
     void SpawnBushes() {
-        Invoke("SpawnBushes", Random.Range(0.2f, 2.0f));
+        SpawnBushesAt(); //params: array to build, where to build (change in X)
+        Invoke("SpawnBushes", Random.Range(timeMin, timeMax));
     }
 
 }
