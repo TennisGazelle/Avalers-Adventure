@@ -15,8 +15,8 @@ while 1:
         swallowData = random.randint(1,5)
         
     packetData = str(swallowData).encode('ascii') #encode packet to bytes
-    primarySocket.sendto(packetData, (host, port)) #send packet
-    
+    print primarySocket.sendto(packetData, (host, port)) #send packet
+    print packetData, "sent"
     timeLapse+=1
-    time.sleep(1)
+    #time.sleep(1)
 
