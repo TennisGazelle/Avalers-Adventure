@@ -8,12 +8,14 @@ public class AbstractGenerator : MonoBehaviour {
 	// element against which to check for destruction
 	public Transform Destroyer;
 
+    private Vector3 changeInX = new Vector3(11.0f,0,0); 
+
 	// erase element
 	protected void RemoveUnnecessaryElements() {
 		foreach (GameObject go in AllElements) {
 			if (go.transform.position.x < Destroyer.position.x) {
 				Destroy(go);
-				AllElements.Remove(go);
+				 AllElements.Remove(go);
 			}
 		}
 	}
@@ -23,11 +25,20 @@ public class AbstractGenerator : MonoBehaviour {
             GameObject obj = arrayToDisplay[Random.Range(0, arrayToDisplay.Length)];
             GameObject go = Instantiate(obj, newElementPosition, Quaternion.identity, trans) as GameObject;
             AllElements.Add(go);
-            newElementPosition.x += changeInX;
+            newElementPosition.x += changeInX; 
         }
     }
+        
+    protected void SpawnBushesAt(GameObject[] arrayToDisplay){
 
-    protected void SpawnBushesAt(GameObject[] arrayToDisplay, float changeInX){
-
+        // instantiate the object
+        for (int objNdx = 0; objNdx < arrayToDisplay.Length; objNdx++)
+        {
+            // add 5 to current obj 
+            arrayToDisplay[objNdx].transform.position += changeInX;
+            // instantiate with new position and add to all elements
+            GameObject go = Instantiate(arrayToDisplay[objNdx], arrayToDisplay[objNdx].transform.position, Quaternion.identity, arrayToDisplay[objNdx].transform);
+            AllElements.Add(go);    
+        }
     }
 }
