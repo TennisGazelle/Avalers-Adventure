@@ -32,7 +32,7 @@ See content of `numGen.py` for data script details.
 
 Folder Name | Contents
  ---------- | -------- 
- /AnimationController/ | Holds all animation controller files.
+/AnimationController/ | Holds all animation controller files.
 /Animations/ | Holds all animations for character rigs.
 /Objects/ | Holds all .fbx files.
 /Originals/ | Holds all .obj, .mtl, and texture files.
