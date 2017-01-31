@@ -6,7 +6,7 @@ using UnityEngine;
 public class GraphController : MonoBehaviour {
     public float maxValue = 100;
     public float minValue = 0;
-    public float upperGoalHeight= 50;
+    public float upperGoalHeight = 50;
     public float lowerGoalHeight= 25;
     public float backgroundHeight = 150;
 
