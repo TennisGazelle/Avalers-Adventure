@@ -24,7 +24,7 @@ public class FolliageGenScript : AbstractGenerator
 
     public Transform treeScaling;
 
-    private Vector3 frontTreePosition = new Vector3(7, 0, -5);
+    private Vector3 frontTreePosition = new Vector3(6, 0, -5);
     private Vector3 midTreePosition = new Vector3(2, 0, -3);
     private Vector3 backTreePosition = new Vector3(3, 0, -2);
 

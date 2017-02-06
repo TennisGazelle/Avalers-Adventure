@@ -18,7 +18,8 @@ public class SpawnerScript : MonoBehaviour
         {
             GenerateCoin();
         }
-        Invoke("Spawn", Random.Range(timeMin, timeMax));
+      //  Invoke("Spawn", Random.Range(timeMin, timeMax));
+        Invoke("Spawn", 1.5f);
     }
 
     void GenerateCoin() {
