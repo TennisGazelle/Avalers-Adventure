@@ -8,7 +8,6 @@ public class SpawnerScript : MonoBehaviour
     void Start()
     {
         SpawnObject = TokenObjects[Random.Range(0, TokenObjects.Length)];
-        nextTreeXValue = 5;
         Spawn();
     }
 
@@ -24,7 +23,7 @@ public class SpawnerScript : MonoBehaviour
 
     void GenerateCoin() {
         SpawnObject = TokenObjects[Random.Range(0, TokenObjects.Length)];
-        GameObject go = Instantiate(SpawnObject, this.transform.position + new Vector3(coinCount*4, 0, 0), Quaternion.identity) as GameObject;
+        Instantiate(SpawnObject, transform.position + new Vector3(coinCount * 4, 0, 0), Quaternion.identity);
         coinCount++;
     }
 
@@ -34,6 +33,4 @@ public class SpawnerScript : MonoBehaviour
     public float timeMin = 2f;
     public float timeMax = 2f;
     public float coinCount = 0;
-
-    private float nextTreeXValue;
 }

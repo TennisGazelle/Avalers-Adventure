@@ -73,6 +73,7 @@ public class FlappyScript : MonoBehaviour
             {
                 GameStateManager.GameState = GameState.Intro;
                 Application.LoadLevel(Application.loadedLevelName);
+                
             }
         }
 
