@@ -11,34 +11,13 @@ public class ReceieveUDPStream : MonoBehaviour {
     public string iPAddress = "127.0.0.1";
     public int portNumber = 3000;
 
+    public GraphController graph;
+
     Thread thread;
 
     UdpClient client;
     string lastReceivedPacket = "";
     string allReceivedPackets = "";
-
-    private static void Main() {
-        ReceieveUDPStream receiveObj = new ReceieveUDPStream();
-        receiveObj.Init();
-
-        string text = "";
-
-        do {
-            text = Console.ReadLine();
-        }
-        while (!text.Equals("exit"));
-    }
-    
-    void OnGUI() {
-        Rect rectObj = new Rect(40, 10, 200, 400);
-        GUIStyle style = new GUIStyle();
-        style.alignment = TextAnchor.UpperLeft;
-        GUI.Box(rectObj, "# UDPReceive\n127.0.0.1 " + portNumber + " #\n"
-                    + "shell> nc -u 127.0.0.1 : " + portNumber + " \n"
-                    + "\nLast Packet: \n" + lastReceivedPacket
-                    + "\n\nAll Messages: \n" + allReceivedPackets
-                , style);
-    }
 
     // Use this for initialization
     void Start() {
@@ -50,6 +29,15 @@ public class ReceieveUDPStream : MonoBehaviour {
         
     }
 
+    void OnDestroy() {
+        thread.Interrupt();
+        thread.Abort();
+    }
+
+    void OnApplicationQuit() {
+        thread.Abort();
+    }
+
     void Init() {
         thread = new Thread(new ThreadStart(ReceiveData));
         thread.IsBackground = true;
@@ -57,21 +45,26 @@ public class ReceieveUDPStream : MonoBehaviour {
     }
 
     void ReceiveData() {
-        client = new UdpClient(portNumber);
-
-        do {
-
+        while (true) {
             try {
                 IPEndPoint myIP = new IPEndPoint(IPAddress.Parse(iPAddress), portNumber);
                 byte[] data = client.Receive(ref myIP);
                 string text = Encoding.UTF8.GetString(data);
-                print(">>" + text);
                 lastReceivedPacket = text;
                 allReceivedPackets = allReceivedPackets + text;
+                Debug.Log("float:" + float.Parse(text));
+                Debug.Log("int: " + Int32.Parse(text));
+                Debug.Log("String" + text);
+                graph.updateCurrentValue(float.Parse(text));
             } catch (Exception err) {
                 print(err.ToString());
             }
-        } while (true);
+
+            // check to see if the main thread is alive, and die if not
+        }
+
+
+        //Invoke("ReceiveData", 0.0f);
     }
 
     public string ResetPacketHistory() {
