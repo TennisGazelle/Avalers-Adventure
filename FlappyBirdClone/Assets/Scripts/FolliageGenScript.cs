@@ -17,7 +17,7 @@ public class FolliageGenScript : AbstractGenerator
     public GameObject[] darkBushes;
     public GameObject[] littleLightBushes;
 
-    public GameObject[] Earth;
+    public GameObject[] earth;
 
     private float timeMin = 0.2f;
     private float timeMax = 1.0f;
@@ -35,6 +35,8 @@ public class FolliageGenScript : AbstractGenerator
     private Vector3 lightBushPosition = new Vector3(3, -1.52f, -2);
     private Vector3 darkBushPosition = new Vector3(2, -1.62f, -4);
     private Vector3 littleLightBushPosition = new Vector3(4, -1.7f, -5);
+
+    private Vector3 earthPosition = new Vector3(3, -2.3f, -4.5f);
 
     // Use this for initialization
     void Start()
@@ -61,6 +63,8 @@ public class FolliageGenScript : AbstractGenerator
         SpawnElementAt(lightBushes, ref lightBushPosition, 2.0f, treeScaling);
         SpawnElementAt(darkBushes, ref darkBushPosition, Random.Range(1.2f, 2.0f), treeScaling);
         SpawnElementAt(littleLightBushes, ref littleLightBushPosition, Random.Range(0.8f, 1.8f), treeScaling);
+
+        SpawnElementAt(earth, ref earthPosition, 5.0f, treeScaling);
 
         //SpawnBushesAt(lightBushes, treeScaling);
         //SpawnBushesAt(darkBushes, treeScaling);
