@@ -22,15 +22,9 @@ public class SpawnerScript : MonoBehaviour
     }
 
     void GenerateCoin() {
-        // if you want to do stuff with it, save
-        // it as type 'GameObject go = ...'
         SpawnObject = TokenObjects[Random.Range(0, TokenObjects.Length)];
         GameObject go = Instantiate(SpawnObject, this.transform.position + new Vector3(coinCount*4, 0, 0), Quaternion.identity) as GameObject;
         coinCount++;
-
-        // next line puts it at the same rendering
-        // layer as the bird (before the trees)
-        // GetComponent<Renderer>().sortingLayerName = "Flappy";
     }
 
     private GameObject SpawnObject;
