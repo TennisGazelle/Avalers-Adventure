@@ -26,7 +26,7 @@ public class ReceieveUDPStream : MonoBehaviour {
 
     void Update() {
         // hapens every frame
-        
+        ReceiveData();
     }
 
     void OnDestroy() {
@@ -40,12 +40,12 @@ public class ReceieveUDPStream : MonoBehaviour {
 
     void Init() {
         thread = new Thread(new ThreadStart(ReceiveData));
-        thread.IsBackground = true;
-        thread.Start();
+        //thread.IsBackground = true;
+        //thread.Start();
     }
 
     void ReceiveData() {
-        while (true) {
+        //while (true) {
             try {
                 IPEndPoint myIP = new IPEndPoint(IPAddress.Parse(iPAddress), portNumber);
                 byte[] data = client.Receive(ref myIP);
@@ -61,7 +61,7 @@ public class ReceieveUDPStream : MonoBehaviour {
             }
 
             // check to see if the main thread is alive, and die if not
-        }
+        //}
 
 
         //Invoke("ReceiveData", 0.0f);

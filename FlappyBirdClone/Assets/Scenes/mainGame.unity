@@ -1921,7 +1921,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 906839453}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 52aed863f9b55364eb46a19f1115b442, type: 3}
   m_Name: 
@@ -3567,7 +3567,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1223467293535172, guid: 1618a67d4cdb84b018bc494bd96ac4fc, type: 2}
       propertyPath: m_Layer
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1618a67d4cdb84b018bc494bd96ac4fc, type: 2}

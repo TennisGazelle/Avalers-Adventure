@@ -23,7 +23,7 @@ public class SpawnerScript : MonoBehaviour
 
     void GenerateCoin() {
         SpawnObject = TokenObjects[Random.Range(0, TokenObjects.Length)];
-        Instantiate(SpawnObject, transform.position + new Vector3(coinCount * 4, 0, 0), Quaternion.identity);
+        Instantiate(SpawnObject, this.transform.position + new Vector3(coinCount * 4, 0, 0), Quaternion.identity);
         coinCount++;
     }
 
