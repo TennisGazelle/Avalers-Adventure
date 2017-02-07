@@ -58,7 +58,7 @@ public class GraphController : MonoBehaviour {
         {
             timer = 0.0f;
             updateText();
-            updateCurrentValue(Random.Range(0, 150));
+            //updateCurrentValue(Random.Range(0, 150));
             drawLine();
         }
     }
