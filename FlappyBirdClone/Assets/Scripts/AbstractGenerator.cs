@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 
 public class AbstractGenerator : MonoBehaviour {
+
 	// elements that will be generated
 	protected ArrayList AllElements = new ArrayList();
 
