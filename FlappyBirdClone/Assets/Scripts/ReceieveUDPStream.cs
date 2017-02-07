@@ -28,7 +28,6 @@ public class ReceieveUDPStream : MonoBehaviour {
 
     void Update() {
         // hapens every frame
-        ReceiveData();
     }
 
     void OnDisable() {
@@ -58,7 +57,7 @@ public class ReceieveUDPStream : MonoBehaviour {
                 //Debug.Log("String" + text);
                 graph.updateCurrentValue(float.Parse(text));
             } catch (Exception err) {
-                //print(err.ToString());
+                print(err.ToString());
             }
 
             // check to see if the main thread is alive, and die if not
