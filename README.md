@@ -51,11 +51,11 @@ Note that all your file changes, if any that you have made on master will be gon
 Let's pretend that I'm about to pull a ticket from Trello and I'm going to make some changes, I also wish to encapsulate every change into a branch.  For the sake of example, let's pretend I'm working on the camera settings.  These will thus be binary files.
 
 1. I must declare that new branch.
-> ``` bash
+``` bash
 git checkout -b camera
 ```
-> This both creates and checks out the branch.  The same can be done in two separate calls, with just:
-> ``` bash
+This both creates and checks out the branch.  The same can be done in two separate calls, with just:
+``` bash
 git branch camera
 git checkout camera
 ```
@@ -65,13 +65,13 @@ git checkout camera
 3. Once you have finished your task, attach the latest commit to the corresponding card on Trello.
 
 4. When merging your approved branch to the `develop` branch (and eventually when merging `develop` to `master`), checkout the branch to which you want to merge, and then merge that.
->```bash
+```bash
 git checkout develop
 git merge camera
 ```
 
 5. In the event that `develop` was updated while your branch was still under construction, you need to __rebase__ you branch.  This merely means that the commit from which you branch stems now needs to be updated to the most recent commit in *that* branch.
->```bash
+```bash
 git checkout camera
 git rebase develop
 ```
