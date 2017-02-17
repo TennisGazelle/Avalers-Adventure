@@ -3847,8 +3847,67 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f84b4aabc104b6e45a6cca35a0bb9e50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  entities: []
-  bgdata: []
+  objectTypes:
+  - label: 
+    backgroundObject: {fileID: 0}
+    initialOffset: 0
+    minSpacing: 0
+    maxSpacing: 0
+    dimensionLayout: 1
+  - label: 
+    backgroundObject: {fileID: 0}
+    initialOffset: 0
+    minSpacing: 0
+    maxSpacing: 0
+    dimensionLayout: 0
+  - label: 
+    backgroundObject: {fileID: 0}
+    initialOffset: 0
+    minSpacing: 0
+    maxSpacing: 0
+    dimensionLayout: 0
+  - label: 
+    backgroundObject: {fileID: 0}
+    initialOffset: 0
+    minSpacing: 0
+    maxSpacing: 0
+    dimensionLayout: 0
+  - label: 
+    backgroundObject: {fileID: 0}
+    initialOffset: 0
+    minSpacing: 0
+    maxSpacing: 0
+    dimensionLayout: 0
+  - label: 
+    backgroundObject: {fileID: 0}
+    initialOffset: 0
+    minSpacing: 0
+    maxSpacing: 0
+    dimensionLayout: 0
+  - label: 
+    backgroundObject: {fileID: 0}
+    initialOffset: 0
+    minSpacing: 0
+    maxSpacing: 0
+    dimensionLayout: 0
+  - label: 
+    backgroundObject: {fileID: 0}
+    initialOffset: 0
+    minSpacing: 0
+    maxSpacing: 0
+    dimensionLayout: 0
+  - label: 
+    backgroundObject: {fileID: 0}
+    initialOffset: 0
+    minSpacing: 0
+    maxSpacing: 0
+    dimensionLayout: 0
+  - label: 
+    backgroundObject: {fileID: 0}
+    initialOffset: 0
+    minSpacing: 0
+    maxSpacing: 0
+    dimensionLayout: 0
 --- !u!4 &879310387
 Transform:
   m_ObjectHideFlags: 0
