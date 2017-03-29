@@ -8,7 +8,7 @@ Although generally overlooked as a normal bodily function, the ability to swallo
 #### Poster
 #### Specification and Design Documents
 
-### **About**
+## **About**
 Computer Science 426 Senior Projects at the University of Reno, Nevada. Spring 2017.
 
 #### Team #5
