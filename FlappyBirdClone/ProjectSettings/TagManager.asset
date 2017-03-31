@@ -9,6 +9,7 @@ TagManager:
   - Flappy
   - Floor
   - Background
+  - Water
   layers:
   - Default
   - TransparentFX
