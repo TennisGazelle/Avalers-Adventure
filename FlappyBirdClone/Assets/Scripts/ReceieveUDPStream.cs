@@ -19,7 +19,8 @@ public class ReceieveUDPStream : MonoBehaviour {
     string lastReceivedPacket = "";
     string allReceivedPackets = "";
 
-    public int lastnum = 0;
+    public ArrayList incomingData;
+    public float lastnum = 0;
 
     // Use this for initialization
     void Start() {
@@ -28,6 +29,9 @@ public class ReceieveUDPStream : MonoBehaviour {
 
     void Update() {
         // hapens every frame
+        if (incomingData.Count > 20) {
+            incomingData.RemoveAt(0);
+        }
     }
 
     void OnDisable() {
@@ -38,6 +42,7 @@ public class ReceieveUDPStream : MonoBehaviour {
     }
 
     void Init() {
+        incomingData = new ArrayList();
         thread = new Thread(new ThreadStart(ReceiveData));
         thread.IsBackground = true;
         thread.Start();
@@ -52,10 +57,10 @@ public class ReceieveUDPStream : MonoBehaviour {
                 string text = Encoding.UTF8.GetString(data);
                 lastReceivedPacket = text;
                 allReceivedPackets = allReceivedPackets + text;
-                //Debug.Log("float:" + float.Parse(text));
-                //Debug.Log("int: " + Int32.Parse(text));
-                //Debug.Log("String" + text);
+
                 graph.updateCurrentValue(float.Parse(text));
+                incomingData.Add(float.Parse(text));
+                lastnum = float.Parse(text);
             } catch (Exception err) {
                 print(err.ToString());
             }
@@ -70,5 +75,16 @@ public class ReceieveUDPStream : MonoBehaviour {
     public string ResetPacketHistory() {
         allReceivedPackets = "";
         return lastReceivedPacket;
+    }
+
+    public bool hasTypicalHappened() {
+        if (lastnum > 40) {
+            return true;
+        }
+        return false;
+    }
+
+    public bool hasEffortfulHappened() {
+        return false;
     }
 }
