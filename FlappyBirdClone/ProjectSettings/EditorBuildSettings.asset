@@ -6,4 +6,10 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/mainMenu.unity
+  - enabled: 1
+    path: Assets/Scenes/balloonGame1.unity
+  - enabled: 1
+    path: Assets/Scenes/StartMenu.unity
+  - enabled: 1
     path: Assets/Scenes/mainGame.unity

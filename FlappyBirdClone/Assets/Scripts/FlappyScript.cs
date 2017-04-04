@@ -98,10 +98,11 @@ public class FlappyScript : MonoBehaviour
     bool WasTouchedOrClicked()
     {
         if (Input.GetButtonUp("Jump") || Input.GetMouseButtonDown(0) ||
-            (Input.touchCount > 0 && Input.touches[0].phase == TouchPhase.Ended))
+            (Input.touchCount > 0 && Input.touches[0].phase == TouchPhase.Ended)) {
+            Debug.Log("clicked");
             return true;
-        else
-            return false;
+        }
+        return false;
     }
 
     void MoveBirdOnXAxis()
