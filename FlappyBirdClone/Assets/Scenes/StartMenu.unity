@@ -1228,7 +1228,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab3a7fbc836c52f41bef4a7d09072a33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  restSlider: {fileID: 192944460}
+  restSlider: {fileID: 0}
 --- !u!114 &192944460
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1709,7 +1709,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &328973020
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2972,10 +2972,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a36d316b5379804aa3069f35afb573c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  percentageSliderObj: {fileID: 1081469477}
-  inputFieldObj: {fileID: 533824539}
-  restDurationSlider: {fileID: 603789158}
-  swallowDurationSlider: {fileID: 1585421140}
+  percentageSliderObj: {fileID: 0}
+  inputFieldObj: {fileID: 0}
+  restDurationSlider: {fileID: 0}
+  swallowDurationSlider: {fileID: 0}
 --- !u!114 &550433923
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3264,7 +3264,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &586660756
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3678,7 +3678,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d104d5335368754582b37b2c017582a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sliderPercentage: {fileID: 618723020}
+  sliderPercentage: {fileID: 0}
 --- !u!1 &628585943
 GameObject:
   m_ObjectHideFlags: 0
@@ -4650,7 +4650,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d104d5335368754582b37b2c017582a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sliderPercentage: {fileID: 874683113}
+  sliderPercentage: {fileID: 0}
 --- !u!114 &874683113
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4882,7 +4882,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab3a7fbc836c52f41bef4a7d09072a33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  restSlider: {fileID: 939800630}
+  restSlider: {fileID: 0}
 --- !u!114 &939800630
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6371,7 +6371,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab3a7fbc836c52f41bef4a7d09072a33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  restSlider: {fileID: 1499164693}
+  restSlider: {fileID: 0}
 --- !u!114 &1499164693
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6970,10 +6970,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a36d316b5379804aa3069f35afb573c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  percentageSliderObj: {fileID: 819701760}
-  inputFieldObj: {fileID: 1793390995}
-  restDurationSlider: {fileID: 589565452}
-  swallowDurationSlider: {fileID: 1585421140}
+  percentageSliderObj: {fileID: 0}
+  inputFieldObj: {fileID: 0}
+  restDurationSlider: {fileID: 0}
+  swallowDurationSlider: {fileID: 0}
 --- !u!114 &1604008787
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7128,7 +7128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d104d5335368754582b37b2c017582a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sliderPercentage: {fileID: 1696552485}
+  sliderPercentage: {fileID: 0}
 --- !u!114 &1696552485
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7771,10 +7771,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a36d316b5379804aa3069f35afb573c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  percentageSliderObj: {fileID: 457017401}
-  inputFieldObj: {fileID: 2140747799}
-  restDurationSlider: {fileID: 572303241}
-  swallowDurationSlider: {fileID: 1585421140}
+  percentageSliderObj: {fileID: 0}
+  inputFieldObj: {fileID: 0}
+  restDurationSlider: {fileID: 0}
+  swallowDurationSlider: {fileID: 0}
 --- !u!1 &1839995342
 GameObject:
   m_ObjectHideFlags: 0
@@ -8335,7 +8335,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08de1326c5bb7534fa8feb8fcdb4fd11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sliderPercentage: {fileID: 1999461007}
+  sliderPercentage: {fileID: 0}
 --- !u!114 &1999461007
 MonoBehaviour:
   m_ObjectHideFlags: 0
