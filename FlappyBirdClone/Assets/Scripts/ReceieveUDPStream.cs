@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 using System;
@@ -64,12 +64,8 @@ public class ReceieveUDPStream : MonoBehaviour {
             } catch (Exception err) {
                 print(err.ToString());
             }
-
             // check to see if the main thread is alive, and die if not
         }
-
-
-        //Invoke("ReceiveData", 0.0f);
     }
 
     public string ResetPacketHistory() {
@@ -78,13 +74,19 @@ public class ReceieveUDPStream : MonoBehaviour {
     }
 
     public bool hasTypicalHappened() {
-        if (lastnum > 40) {
-            return true;
-        }
-        return false;
+        return (lastnum > GameSettingsControl.Instance.baselineSwallow);
+        
+        //GameSettingsControl.Instance.baselineSwallow
+        //Game//.restDurection
+            //.swallowDuration
+            //.baselineSwallow
+            //.baselinePercentage
     }
 
     public bool hasEffortfulHappened() {
         return false;
     }
+    
+    public bool hasBallistic() {
+        return hasTypicalHappened();
 }
