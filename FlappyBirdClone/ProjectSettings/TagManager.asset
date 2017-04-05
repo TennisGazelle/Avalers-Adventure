@@ -56,3 +56,6 @@ TagManager:
   - name: Intro GUI
     uniqueID: 3798174681
     locked: 0
+  - name: SlingshotForeground
+    uniqueID: 1448588259
+    locked: 0
