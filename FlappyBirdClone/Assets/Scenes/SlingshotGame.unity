@@ -170,7 +170,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &19655745
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -326,7 +326,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 154870390}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.65, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 710240223}
@@ -696,7 +696,6 @@ GameObject:
   m_Component:
   - component: {fileID: 634634618}
   - component: {fileID: 634634619}
-  - component: {fileID: 634634620}
   m_Layer: 0
   m_Name: Catapult Holder
   m_TagString: Untagged
@@ -739,20 +738,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &634634620
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 634634617}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a31d9093455a6ef4fa36b78fd5802b56, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxStretch: 3
-  frontCatapult: {fileID: 0}
-  backCatapult: {fileID: 0}
 --- !u!1 &710240220
 GameObject:
   m_ObjectHideFlags: 0
@@ -764,6 +749,7 @@ GameObject:
   - component: {fileID: 710240222}
   - component: {fileID: 710240221}
   - component: {fileID: 710240224}
+  - component: {fileID: 710240225}
   m_Layer: 0
   m_Name: AsteroidEmpty
   m_TagString: Untagged
@@ -792,7 +778,7 @@ Rigidbody2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 710240220}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -838,6 +824,18 @@ SpringJoint2D:
   m_Distance: 1
   m_DampingRatio: 0
   m_Frequency: 5
+--- !u!114 &710240225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 710240220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a31d9093455a6ef4fa36b78fd5802b56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxStretch: 3
 --- !u!1 &1097320017
 GameObject:
   m_ObjectHideFlags: 0
@@ -924,6 +922,50 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1541864374
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1541864376}
+  - component: {fileID: 1541864375}
+  m_Layer: 0
+  m_Name: GlobalGameData
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1541864375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1541864374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 755f30c1140a6984dad11a40ca706445, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baselineSwallow: 0
+  baselinePercentage: 0
+  restDuration: 0
+  swallowDuration: 0
+--- !u!4 &1541864376
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1541864374}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1911565817
 GameObject:
