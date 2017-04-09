@@ -29,7 +29,7 @@ public class ProjectileDragging : MonoBehaviour {
         tempInput = 50;
         targetValue = 50;
 
-        winningForce = new Vector3(100, 50, 0);
+        winningForce = new Vector3(85, 50, 0);
     }
 	void Start () {
         //LineRendererSetup();
@@ -40,6 +40,7 @@ public class ProjectileDragging : MonoBehaviour {
 
         // if input => target * percentage, add the correct force to win, if not apply the percent there
 	}
+
 /*
     void LineRendererSetup(){
         frontCatapult.SetPosition(0, frontCatapult.transform.position);
@@ -63,6 +64,7 @@ public class ProjectileDragging : MonoBehaviour {
 
             // turn make dynamic so physics can work
             rb.bodyType = RigidbodyType2D.Dynamic;
+            rb.angularDrag = 3f;
 
             rb.AddForce(winningForce, ForceMode2D.Impulse);
         }
@@ -75,6 +77,8 @@ public class ProjectileDragging : MonoBehaviour {
 
             // turn make dynamic so physics can work
             rb.bodyType = RigidbodyType2D.Dynamic;
+            rb.angularDrag = 3f;
+
             // add force
             rb.AddForce(new Vector3((winningForce.x * percentageThere), winningForce.y, 0), ForceMode2D.Impulse);
         }
