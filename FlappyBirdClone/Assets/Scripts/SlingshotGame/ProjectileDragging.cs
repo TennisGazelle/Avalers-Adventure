@@ -52,12 +52,12 @@ public class ProjectileDragging : MonoBehaviour {
 	void Update () {
 
         //timerText.text = restTimeLeft.ToString("f2");
-        swallowText.text = swallowingWindowTimer.ToString("f2");
+        swallowText.text = "Time to swallow: " + swallowingWindowTimer.ToString("f2");
 
         // update rest timer 
         if (restTimeLeft > 0)
         {
-            timerText.text = restTimeLeft.ToString("f2");
+            timerText.text = "Time until next swallow: " + restTimeLeft.ToString("f2");
             commandText.text = "Relax";
             restTimeLeft -= Time.deltaTime;
             return;
