@@ -5,15 +5,16 @@ using UnityEngine.UI;
 
 public class ProjectileDragging : MonoBehaviour {
 
+    //gui text
     public Text timerText;
     public Text commandText;
     public Text swallowText;
 
-    public float maxStretch = 3.0f;
 
-    private SpringJoint2D spring;
+    //private SpringJoint2D spring;
     private Rigidbody2D rb;
 
+    //game settings
     private float baseline = GameSettingsControl.Instance.baselineSwallow;
     private float percentageOfBaseline = GameSettingsControl.Instance.baselinePercentage;
 
@@ -29,36 +30,34 @@ public class ProjectileDragging : MonoBehaviour {
 
     void Awake()
     {
-        spring = GetComponent<SpringJoint2D>();
         rb = GetComponent<Rigidbody2D>();
 
-        //tempInput = 50.0f;
+        tempInput = 50.0f;
         //targetValue = baseline * percentageOfBaseline * (0.01f);
-
-        tempInput = 50;
-        targetValue = 50;
+        targetValue = 50.0f;
 
         //timeBetweenSwallows = GameSettingsControl.Instance.restDuration;
         timeBetweenSwallows = 3.0f;
-        restTimeLeft = timeBetweenSwallows;
+        restTimeLeft = 3.0f;
 
         swallowingWindowTimer = 0.0f;
         swallowingWindow = 3.0f;
 
-    winningForce = new Vector3(100, 40, 0);
+        winningForce = new Vector3(100, 40, 0);
     }
 	void Start () {
-        //LineRendererSetup();
+
 	}
 	
 	void Update () {
 
-        timerText.text = restTimeLeft.ToString("f2");
+        //timerText.text = restTimeLeft.ToString("f2");
         swallowText.text = swallowingWindowTimer.ToString("f2");
 
-        // update timer 
+        // update rest timer 
         if (restTimeLeft > 0)
         {
+            timerText.text = restTimeLeft.ToString("f2");
             commandText.text = "Relax";
             restTimeLeft -= Time.deltaTime;
             return;
@@ -74,7 +73,7 @@ public class ProjectileDragging : MonoBehaviour {
         {
             commandText.text = "Not quick enough";
             restTimeLeft = timeBetweenSwallows;
-            //swallowingWindowTimer = 0.0f;
+            swallowingWindowTimer = 0.0f;
             return;
         }
         else
@@ -89,12 +88,8 @@ public class ProjectileDragging : MonoBehaviour {
 
         float percentageThere;
 
-        if (restTimeLeft == 0 && swallowingWindowTimer <= swallowingWindow)
+        if (restTimeLeft <= 0 && swallowingWindowTimer <= swallowingWindow)
         {
-
-            // so nothing holds onto asteroid
-            Destroy(spring);
-
             // turn make dynamic so physics can work
             rb.bodyType = RigidbodyType2D.Dynamic;
             rb.angularDrag = 3f;
