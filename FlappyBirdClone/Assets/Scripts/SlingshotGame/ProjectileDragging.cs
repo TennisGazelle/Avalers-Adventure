@@ -10,6 +10,9 @@ public class ProjectileDragging : MonoBehaviour {
     public Text commandText;
     public Text swallowText;
 
+    public Text bestSwallow;
+    public Text currentSwallow; 
+
 
     //private SpringJoint2D spring;
     private Rigidbody2D rb;
@@ -36,12 +39,12 @@ public class ProjectileDragging : MonoBehaviour {
         //targetValue = baseline * percentageOfBaseline * (0.01f);
         targetValue = 50.0f;
 
-        //timeBetweenSwallows = GameSettingsControl.Instance.restDuration;
-        timeBetweenSwallows = 3.0f;
-        restTimeLeft = 3.0f;
+        timeBetweenSwallows = GameSettingsControl.Instance.restDuration;
+        //timeBetweenSwallows = 15.0f;
+        restTimeLeft = timeBetweenSwallows;
 
-        swallowingWindowTimer = 0.0f;
-        swallowingWindow = 3.0f;
+        swallowingWindowTimer = 3.0f;
+        swallowingWindow = 2.0f;
 
         winningForce = new Vector3(100, 40, 0);
     }
@@ -63,17 +66,17 @@ public class ProjectileDragging : MonoBehaviour {
             return;
         }
 
-        if (restTimeLeft <= 0 && swallowingWindowTimer <= swallowingWindow)
+        if (restTimeLeft <= 0 && swallowingWindowTimer >= 0)
         {
             commandText.text = "Swallow!";
-            swallowingWindowTimer += Time.deltaTime;
+            swallowingWindowTimer -= Time.deltaTime;
             return;
         }
-        else if (restTimeLeft <= 0 && swallowingWindowTimer >= swallowingWindow)
+        else if (restTimeLeft <= 0 && swallowingWindowTimer <= 0)
         {
-            commandText.text = "Not quick enough";
+            //commandText.text = "Not quick enough";
             restTimeLeft = timeBetweenSwallows;
-            swallowingWindowTimer = 0.0f;
+            swallowingWindowTimer = 2.0f;
             return;
         }
         else
