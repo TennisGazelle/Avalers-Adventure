@@ -40,7 +40,7 @@ public class ProjectileDragging : MonoBehaviour {
         targetValue = 50.0f;
 
         timeBetweenSwallows = GameSettingsControl.Instance.restDuration;
-        //timeBetweenSwallows = 15.0f;
+        //timeBetweenSwallows = 2.0f;
         restTimeLeft = timeBetweenSwallows;
 
         swallowingWindowTimer = 3.0f;

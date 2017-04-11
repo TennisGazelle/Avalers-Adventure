@@ -13,6 +13,10 @@ public class GameResetter : MonoBehaviour {
     private Quaternion originalAstRotation;
     private float rotationResetSpeed = 1.0f;
 
+    public GameObject firstStructure;
+    public GameObject secondStructure;
+    public GameObject thirdStructure;
+
     private int houseCounter; 
 
 	// Use this for initialization
@@ -30,7 +34,10 @@ public class GameResetter : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         if (rb.velocity.sqrMagnitude < resetSpeedSqr)
+        {
             Reset();
+            houseCounter++;
+        }
 	}
 
     void Reset()
@@ -38,12 +45,25 @@ public class GameResetter : MonoBehaviour {
         // reset ball
         astTransform.position = originalAstPosition;
         astTransform.rotation = Quaternion.Slerp(astTransform.transform.rotation, originalAstRotation, Time.time * rotationResetSpeed);
-         
+/*         
         // if house1 -> disable, reset location and enable house2
+        if (houseCounter == 1)
+        {
+            firstStructure.SetActive(false);
+            secondStructure.SetActive(true);
+        }
 
         // if house2 -> disable, reset location and enable house2
+        if (houseCounter == 2)
+        {
+            secondStructure.SetActive(false);
+            thirdStructure.SetActive(true);
+        }
 
-        // if house1 -> disable, reset location and enable house2
-
+        // if house3 -> disable, reset location and enable house2
+        if (houseCounter == 3)
+        {
+        }
+*/
     }
 }
