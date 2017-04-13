@@ -7444,6 +7444,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stream: {fileID: 628565473}
+  currentWaypoint: {fileID: 1004668667}
+  moveSpeed: 10
 --- !u!114 &389664300
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8710,7 +8712,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4604347650565812, guid: a0c8d88fc116cd4408c55b508cfb3225, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -356.8
+      value: -371
       objectReference: {fileID: 0}
     - target: {fileID: 4604347650565812, guid: a0c8d88fc116cd4408c55b508cfb3225, type: 2}
       propertyPath: m_LocalPosition.y
@@ -8718,7 +8720,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4604347650565812, guid: a0c8d88fc116cd4408c55b508cfb3225, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -391.4
+      value: -369
       objectReference: {fileID: 0}
     - target: {fileID: 4604347650565812, guid: a0c8d88fc116cd4408c55b508cfb3225, type: 2}
       propertyPath: m_LocalRotation.x
@@ -18357,14 +18359,9 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 1747343182}
     m_Modifications:
-    - target: {fileID: 114259412688937472, guid: a0c8d88fc116cd4408c55b508cfb3225,
-        type: 2}
-      propertyPath: waypoints.Array.size
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 4604347650565812, guid: a0c8d88fc116cd4408c55b508cfb3225, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -373.5
+      value: -334
       objectReference: {fileID: 0}
     - target: {fileID: 4604347650565812, guid: a0c8d88fc116cd4408c55b508cfb3225, type: 2}
       propertyPath: m_LocalPosition.y
@@ -18372,7 +18369,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4604347650565812, guid: a0c8d88fc116cd4408c55b508cfb3225, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -346.2
+      value: -341
       objectReference: {fileID: 0}
     - target: {fileID: 4604347650565812, guid: a0c8d88fc116cd4408c55b508cfb3225, type: 2}
       propertyPath: m_LocalRotation.x
@@ -18394,10 +18391,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 17
       objectReference: {fileID: 0}
-    - target: {fileID: 1551177972688224, guid: a0c8d88fc116cd4408c55b508cfb3225, type: 2}
-      propertyPath: m_Name
-      value: Waypoint (17)
-      objectReference: {fileID: 0}
     - target: {fileID: 114259412688937472, guid: a0c8d88fc116cd4408c55b508cfb3225,
         type: 2}
       propertyPath: waypoints.Array.data[0]
@@ -18408,6 +18401,10 @@ Prefab:
       propertyPath: waypoints.Array.data[1]
       value: 
       objectReference: {fileID: 440444239}
+    - target: {fileID: 1551177972688224, guid: a0c8d88fc116cd4408c55b508cfb3225, type: 2}
+      propertyPath: m_Name
+      value: Waypoint (17)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a0c8d88fc116cd4408c55b508cfb3225, type: 2}
   m_IsPrefabParent: 0
@@ -18976,6 +18973,16 @@ Prefab:
       propertyPath: m_Name
       value: Waypoint (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 114259412688937472, guid: a0c8d88fc116cd4408c55b508cfb3225,
+        type: 2}
+      propertyPath: waypoints.Array.data[1]
+      value: 
+      objectReference: {fileID: 1437251588}
+    - target: {fileID: 114259412688937472, guid: a0c8d88fc116cd4408c55b508cfb3225,
+        type: 2}
+      propertyPath: waypoints.Array.data[0]
+      value: 
+      objectReference: {fileID: 208079404}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a0c8d88fc116cd4408c55b508cfb3225, type: 2}
   m_IsPrefabParent: 0
@@ -20808,11 +20815,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 1747343182}
     m_Modifications:
-    - target: {fileID: 114259412688937472, guid: a0c8d88fc116cd4408c55b508cfb3225,
-        type: 2}
-      propertyPath: waypoints.Array.size
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 4604347650565812, guid: a0c8d88fc116cd4408c55b508cfb3225, type: 2}
       propertyPath: m_LocalPosition.x
       value: -10.133148

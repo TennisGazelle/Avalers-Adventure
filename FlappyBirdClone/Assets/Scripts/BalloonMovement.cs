@@ -7,6 +7,8 @@ public class BalloonMovement : MonoBehaviour {
     private Rigidbody rb;
     private Vector3 winningForce;
     public ReceieveUDPStream stream;
+    public Transform currentWaypoint;
+    public float moveSpeed = 5f;
 
 	// Use this for initialization
 	void Awake () {
@@ -16,8 +18,8 @@ public class BalloonMovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-        transform.RotateAround(Vector3.zero, Vector3.up, 2.5f * Time.deltaTime);
-
+        // transform.RotateAround(Vector3.zero, Vector3.up, 2.5f * Time.deltaTime);
+        MoveToWaypoint();
         if (Input.GetKeyDown("space") || stream.hasTypicalHappened())
         {
             rb.AddForce(winningForce, ForceMode.Force);
@@ -32,5 +34,18 @@ public class BalloonMovement : MonoBehaviour {
         rb.AddForce(winningForce, ForceMode.Force);
     }
 
+    void MoveToWaypoint()
+    {
+        transform.position = Vector3.MoveTowards(transform.position, currentWaypoint.transform.position, 10 * Time.deltaTime);
 
+        if (Vector3.Distance(currentWaypoint.transform.position, transform.position) < 1)
+        {
+            GetNewWaypoint();
+        }
+    }
+
+    void GetNewWaypoint()
+    {
+        currentWaypoint = currentWaypoint.GetComponent<WaypointReachablePath>().GetReachablePaths()[0];
+    }
 }
