@@ -22,8 +22,8 @@ public class BalloonMovement : MonoBehaviour {
         {
             rb.AddForce(winningForce, ForceMode.Force);
         }
-        if (transform.position.y < 0) {
-            transform.position -= new Vector3(0, transform.position.y, 0);
+        if (transform.position.y < 4.4f) {
+            transform.position += new Vector3(0, transform.position.y*0.01f, 0);
         }
     }
 
