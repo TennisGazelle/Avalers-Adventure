@@ -22,8 +22,12 @@ public class ReceieveUDPStream : MonoBehaviour {
     public ArrayList incomingData;
     public float lastnum = 0;
 
+    private bool typicalCheck, lastTypicalCheck;
+
     // Use this for initialization
     void Start() {
+        typicalCheck = false;
+        lastTypicalCheck = false;
         Init();
     }
 
@@ -77,11 +81,19 @@ public class ReceieveUDPStream : MonoBehaviour {
         return lastReceivedPacket;
     }
 
+    
     public bool hasTypicalHappened() {
-        if (lastnum > 40) {
+        typicalCheck = lastnum > 40 || lastnum > GameSettingsControl.Instance.baselineSwallow;
+
+        if (typicalCheck == lastTypicalCheck) {
+            return false;
+        } else if (typicalCheck) {
+            lastTypicalCheck = true;
             return true;
+        } else {
+            lastTypicalCheck = false;
+            return false;
         }
-        return false;
     }
 
     public bool hasEffortfulHappened() {

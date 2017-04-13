@@ -7,15 +7,17 @@ public class BalloonBob : MonoBehaviour {
     public float strength = 1f;
     public float amplitude = 2f;
     float originalPosY;
+    float offsetInY;
 	// Use this for initialization
 	void Awake () {
-        originalPosY = transform.position.y;
+        offsetInY = 0;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        Vector3 pos = transform.position;
-        pos.y = (Mathf.Sin(Time.time * amplitude) * strength)+ originalPosY;
-        transform.position = pos;
+        // subtract the original transforming
+        transform.position -= new Vector3(0, offsetInY, 0);
+        offsetInY = Mathf.Sin(Time.time * amplitude)*strength;
+        transform.position += new Vector3(0, offsetInY, 0);
 	}
 }

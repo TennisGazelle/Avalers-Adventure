@@ -36,6 +36,9 @@ public class GraphController : MonoBehaviour {
 
     //Use this for initialization
 	void Awake () {
+        //upperGoalHeight = GameSettingsControl.Instance.baselineSwallow * GameSettingsControl.Instance.baselinePercentage;
+        //lowerGoalHeight = upperGoalHeight * 0.4f;
+
         // init height for goal bars
         Vector3 upperGoalPos = upperGoalBound.transform.localPosition;
         Vector3 lowerGoalPos = lowerGoalBound.transform.localPosition;
@@ -43,17 +46,19 @@ public class GraphController : MonoBehaviour {
         lowerGoalBound.transform.localPosition = new Vector3(lowerGoalPos.x, lowerGoalHeight - backgroundHeight, lowerGoalPos.z);
         line = lineRenderer.GetComponent<LineRenderer>();
 
+        step = (backgroundWidth / maxDataPlots);
+
         dataPoints = new List<Vector3>();
+        for (int i = 0; i < 80; i++) {
+            dataPoints.Add(new Vector3(step * counter++, 0, 1.0f));
+        }
         line.sortingOrder = 4;
         line.sortingLayerName = "UI";
-
-        step = (backgroundWidth / maxDataPlots);
     }
 
     // Update is called once per frame
     void Update() {
         timer += Time.deltaTime;
-
         if (timer >= updateTime)
         {
             timer = 0.0f;
@@ -74,13 +79,17 @@ public class GraphController : MonoBehaviour {
 
     void drawLine()
     {
-        dataPoints.Add(new Vector3(step * counter, currentValue, 1.0f));
+        Vector3 newPoint = new Vector3(step * counter, currentValue, 1.0f);
+        dataPoints.Add(newPoint);
         counter++;
+        
         // if we've plotted all, remove the first one
-        if(dataPoints.Count > maxDataPlots)
+        if (dataPoints.Count > maxDataPlots)
         {
             dataPoints.Remove(dataPoints[0]);
             Vector3 linePos = lineRenderer.transform.localPosition;
+            //linePos.x -= step;
+
             lineRenderer.transform.localPosition = new Vector3(linePos.x - step, linePos.y, linePos.z);
         }
 
