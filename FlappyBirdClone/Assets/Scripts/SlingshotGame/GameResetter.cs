@@ -4,36 +4,65 @@ using UnityEngine;
 //using UnityEngine.SceneManagement;
 
 public class GameResetter : MonoBehaviour {
-
+    
+    //reset speeds 
     public float resetSpeed = 1.0f;
     public float resetSpeedSqr;
+
+    // asteroid attributes
     private Rigidbody2D rb;
     private Transform astTransform;
     private Vector3 originalAstPosition;
     private Quaternion originalAstRotation;
     private float rotationResetSpeed = 1.0f;
 
-    public GameObject [] houseStructures;
-    public GameObject secondStructure;
-    public GameObject thirdStructure;
+    // house attributes
+    public GameObject [] houseStructures = new GameObject[9];
 
-    private Quaternion originalHouse1Rotation;
+    private Transform [] originalHouseTransform;
+    private Vector3 [] originalHousePosition;
+    private Quaternion [] originalHouseRotation;
 
     private int houseCounter;
+    private Quaternion currentHouseOriginalRotation;
+
+    // bool to reset target
+    public bool targetReset;
+
+    // Test
+
+    private Quaternion test;
+    GameObject testGO;
+
+    
 
 	// Use this for initialization
 	void Start () {
+        // get asteroid properties
         rb = GetComponent<Rigidbody2D>();
         astTransform = GetComponent<Transform>();
         originalAstPosition = new Vector3(astTransform.position.x, astTransform.position.y, astTransform.position.z);
+
         originalAstRotation = astTransform.rotation;
 
         resetSpeedSqr = resetSpeed * resetSpeed;
 
-        originalHouse1Rotation = houseStructures[0].transform.rotation;
-
         houseCounter = 0;
-	}
+
+        // create all structure originals
+        for (int ndx = 0; ndx < houseStructures.Length; ndx++)
+        {
+            // make 
+            originalHouseTransform[ndx] = houseStructures[ndx].transform;
+            originalHousePosition[ndx] = houseStructures[ndx].transform.position;
+            originalHouseRotation[ndx] = houseStructures[ndx].transform.rotation;
+        }
+
+        // test
+        targetReset = false;
+
+        test = houseStructures[0].transform.rotation;
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -54,29 +83,14 @@ public class GameResetter : MonoBehaviour {
         astTransform.position = originalAstPosition;
         astTransform.rotation = Quaternion.Slerp(astTransform.transform.rotation, originalAstRotation, Time.time * rotationResetSpeed);
 
-        Instantiate(houseStructures[0].transform, houseStructures[0].transform.position, originalHouse1Rotation);
-        /*         
-                // if house1 -> disable, reset location and enable house2
-                if (houseCounter == 1)
-                {
-                    firstStructure.SetActive(false);
-                    secondStructure.SetActive(true);
-                }
-
-                // if house2 -> disable, reset location and enable house2
-                if (houseCounter == 2)
-                {
-                    secondStructure.SetActive(false);
-                    thirdStructure.SetActive(true);
-                }
-
-                // if house3 -> disable, reset location and enable house2
-                if (houseCounter == 3)
-                {
-                }
-        */
+        // repopulate house 
+        Destroy(houseStructures[houseCounter]);
+        houseStructures[houseCounter+1].SetActive(true);
 
         // change shot flag 
         GameObject.Find("AsteroidEmpty").GetComponent<ProjectileDragging>().isShot = false;
+
+        // trigger target reset
+        targetReset = true;
     }
 }
