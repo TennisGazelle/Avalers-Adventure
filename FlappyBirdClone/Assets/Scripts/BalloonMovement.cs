@@ -9,28 +9,33 @@ public class BalloonMovement : MonoBehaviour {
     public ReceieveUDPStream stream;
     public Transform currentWaypoint;
     public float moveSpeed = 5f;
+    public float upSpeed = 10f;
 
+    float lowPosY;
+    float highPosY;
 	// Use this for initialization
 	void Awake () {
         rb = GetComponent<Rigidbody>();
         winningForce = new Vector3(0,5000,0);
+        lowPosY = transform.position.y;
+        highPosY = lowPosY + 10;
 	}
 	
 	// Update is called once per frame
 	void FixedUpdate () {
         // transform.RotateAround(Vector3.zero, Vector3.up, 2.5f * Time.deltaTime);
         MoveToWaypoint();
-        if (Input.GetKeyDown("space") || stream.hasTypicalHappened())
+        if (Input.GetKey("space") || stream.hasTypicalHappened())
         {
-            rb.AddForce(winningForce, ForceMode.Force);
-
+            //rb.AddForce(winningForce, ForceMode.Force);
+            MoveHigh();
         }
+        else
+            MoveLow();
+
         Quaternion neededRotation = Quaternion.LookRotation(currentWaypoint.position - transform.position);
         Quaternion rot = new Quaternion(transform.rotation.x, neededRotation.y, transform.rotation.z, neededRotation.w);
         transform.rotation = Quaternion.Slerp(transform.rotation, rot, 1f * Time.deltaTime);
-        // if (transform.position.y < 4.4f) {
-        //     transform.position += new Vector3(0, transform.position.y*0.01f, 0);
-        //  }
     }
 
     void OnMouseDown()
@@ -47,6 +52,18 @@ public class BalloonMovement : MonoBehaviour {
         {
             GetNewWaypoint();
         }
+    }
+
+    void MoveHigh()
+    {
+        if (transform.position.y < highPosY)
+            transform.Translate(Vector3.up * Time.deltaTime * upSpeed, Space.Self);
+    }
+
+    void MoveLow()
+    {
+        if (transform.position.y > lowPosY)
+            transform.Translate(Vector3.down * Time.deltaTime * upSpeed, Space.Self);
     }
 
     void GetNewWaypoint()
