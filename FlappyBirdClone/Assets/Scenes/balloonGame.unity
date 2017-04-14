@@ -7519,7 +7519,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TokenObjects:
-  - {fileID: 1345448366717174, guid: 26859bf06a1979740b1df5dd679f20ad, type: 2}
+  - {fileID: 1345448366717174, guid: 36cc40b8073ae0d4a91b1612c7342255, type: 2}
   timeMin: 2
   timeMax: 2
   coinCount: 0
@@ -23485,7 +23485,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1132890178}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -90.56728, y: -31.604332, z: -290.03662}
+  m_LocalPosition: {x: -103.25651, y: -34.98811, z: -395.506}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
