@@ -16,8 +16,8 @@ public class BalloonBob : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         // subtract the original transforming
-        //transform.position -= new Vector3(0, offsetInY, 0);
+        transform.position -= new Vector3(0, offsetInY, 0);
         offsetInY = Mathf.Sin(Time.time * amplitude)*strength;
-        //transform.position += new Vector3(0, offsetInY, 0);
+        transform.position += new Vector3(0, offsetInY, 0);
 	}
 }

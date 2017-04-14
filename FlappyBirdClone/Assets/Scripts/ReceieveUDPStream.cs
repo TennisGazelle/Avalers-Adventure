@@ -10,6 +10,7 @@ using System.Threading;
 public class ReceieveUDPStream : MonoBehaviour {
     public string iPAddress = "127.0.0.1";
     public int portNumber = 3000;
+    private float highestValue = 1023.0f;
 
     public GraphController graph;
 
@@ -62,9 +63,10 @@ public class ReceieveUDPStream : MonoBehaviour {
                 lastReceivedPacket = text;
                 allReceivedPackets = allReceivedPackets + text;
 
-                graph.updateCurrentValue(float.Parse(text));
-                incomingData.Add(float.Parse(text));
-                lastnum = float.Parse(text);
+                float normalizedValue = int.Parse(text) / highestValue * 100.0f;
+                graph.updateCurrentValue(normalizedValue);
+                incomingData.Add(normalizedValue);
+                lastnum = normalizedValue;
             } catch (Exception err) {
                 print(err.ToString());
             }
@@ -83,6 +85,7 @@ public class ReceieveUDPStream : MonoBehaviour {
 
     
     public bool hasTypicalHappened() {
+        return hasTypicalStaticHappened();
         typicalCheck = lastnum > GameSettingsControl.Instance.baselineSwallow;
 
         if (typicalCheck == lastTypicalCheck) {
@@ -94,6 +97,10 @@ public class ReceieveUDPStream : MonoBehaviour {
             lastTypicalCheck = false;
             return false;
         }
+    }
+
+    public bool hasTypicalStaticHappened() {
+        return lastnum > GameSettingsControl.Instance.baselineSwallow;
     }
 
     public bool hasEffortfulHappened() {

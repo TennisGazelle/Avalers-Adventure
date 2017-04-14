@@ -39,7 +39,7 @@ public class GraphController : MonoBehaviour {
 
     //Use this for initialization
 	void Awake () {
-        //upperGoalHeight = GameSettingsControl.Instance.baselineSwallow * GameSettingsControl.Instance.baselinePercentage;
+        lowerGoalHeight = GameSettingsControl.Instance.baselineSwallow;
         //lowerGoalHeight = upperGoalHeight * 0.4f;
 
         // init height for goal bars
