@@ -56,3 +56,6 @@ $RECYCLE.BIN/
 # Blender files
 *.blend
 *.blend1
+
+*.meta
+*.sln
