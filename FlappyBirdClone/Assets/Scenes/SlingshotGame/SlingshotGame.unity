@@ -883,7 +883,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   resetSpeed: 0.025
   resetSpeedSqr: 0
-  firstStructure: {fileID: 1904341449}
+  houseStructures:
+  - {fileID: 1904341449}
+  - {fileID: 1935258972}
+  - {fileID: 746422219}
   secondStructure: {fileID: 1935258972}
   thirdStructure: {fileID: 746422219}
 --- !u!114 &710240225
@@ -902,6 +905,7 @@ MonoBehaviour:
   swallowText: {fileID: 2029118585}
   bestSwallow: {fileID: 1226236486}
   currentSwallow: {fileID: 1168697116}
+  isShot: 0
 --- !u!1 &716737554
 GameObject:
   m_ObjectHideFlags: 0
@@ -1987,6 +1991,8 @@ MonoBehaviour:
   baselinePercentage: 0
   restDuration: 0
   swallowDuration: 0
+  towerTumbleScore: 0
+  towerTumbleBestSwallow: 0
 --- !u!4 &1541864376
 Transform:
   m_ObjectHideFlags: 0

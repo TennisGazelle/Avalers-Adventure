@@ -13,11 +13,13 @@ public class GameResetter : MonoBehaviour {
     private Quaternion originalAstRotation;
     private float rotationResetSpeed = 1.0f;
 
-    public GameObject firstStructure;
+    public GameObject [] houseStructures;
     public GameObject secondStructure;
     public GameObject thirdStructure;
 
-    private int houseCounter; 
+    private Quaternion originalHouse1Rotation;
+
+    private int houseCounter;
 
 	// Use this for initialization
 	void Start () {
@@ -28,15 +30,21 @@ public class GameResetter : MonoBehaviour {
 
         resetSpeedSqr = resetSpeed * resetSpeed;
 
-        houseCounter = 1;
+        originalHouse1Rotation = houseStructures[0].transform.rotation;
+
+        houseCounter = 0;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        if (rb.velocity.sqrMagnitude < resetSpeedSqr)
+
+        if (GameObject.Find("AsteroidEmpty").GetComponent<ProjectileDragging>().isShot)
         {
-            Reset();
-            houseCounter++;
+            if (rb.velocity.sqrMagnitude < resetSpeedSqr)
+            {
+                Reset();
+                houseCounter++;
+            }
         }
 	}
 
@@ -45,25 +53,30 @@ public class GameResetter : MonoBehaviour {
         // reset ball
         astTransform.position = originalAstPosition;
         astTransform.rotation = Quaternion.Slerp(astTransform.transform.rotation, originalAstRotation, Time.time * rotationResetSpeed);
-/*         
-        // if house1 -> disable, reset location and enable house2
-        if (houseCounter == 1)
-        {
-            firstStructure.SetActive(false);
-            secondStructure.SetActive(true);
-        }
 
-        // if house2 -> disable, reset location and enable house2
-        if (houseCounter == 2)
-        {
-            secondStructure.SetActive(false);
-            thirdStructure.SetActive(true);
-        }
+        Instantiate(houseStructures[0].transform, houseStructures[0].transform.position, originalHouse1Rotation);
+        /*         
+                // if house1 -> disable, reset location and enable house2
+                if (houseCounter == 1)
+                {
+                    firstStructure.SetActive(false);
+                    secondStructure.SetActive(true);
+                }
 
-        // if house3 -> disable, reset location and enable house2
-        if (houseCounter == 3)
-        {
-        }
-*/
+                // if house2 -> disable, reset location and enable house2
+                if (houseCounter == 2)
+                {
+                    secondStructure.SetActive(false);
+                    thirdStructure.SetActive(true);
+                }
+
+                // if house3 -> disable, reset location and enable house2
+                if (houseCounter == 3)
+                {
+                }
+        */
+
+        // change shot flag 
+        GameObject.Find("AsteroidEmpty").GetComponent<ProjectileDragging>().isShot = false;
     }
 }

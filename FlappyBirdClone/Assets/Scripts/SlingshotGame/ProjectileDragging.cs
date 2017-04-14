@@ -30,6 +30,8 @@ public class ProjectileDragging : MonoBehaviour {
     private float swallowingWindowTimer;
     private float swallowingWindow;
 
+    public bool isShot;
+
 
     void Awake()
     {
@@ -89,6 +91,8 @@ public class ProjectileDragging : MonoBehaviour {
     }   
 
     void OnMouseDown(){
+
+        isShot = true;
 
         float percentageThere;
 
