@@ -52,8 +52,7 @@ public class BalloonMovement : MonoBehaviour {
     void GetNewWaypoint()
     {
         currentWaypoint = currentWaypoint.GetComponent<WaypointReachablePath>().GetReachablePaths()[0];
-  
-
+        GetComponent<SpawnerScript>().Invoke("GenerateCoin", 0.0f);
 		//transform.LookAt (currentWaypoint);
     }
 }
