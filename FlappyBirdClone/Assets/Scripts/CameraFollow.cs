@@ -14,6 +14,7 @@ public class CameraFollow : MonoBehaviour {
 
 	void LateUpdate () {
 		transform.position = new Vector3(transform.position.x, offset.y, transform.position.z);
+        //transform.LookAt(Player.transform);
     }
 
 
