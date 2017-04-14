@@ -7,6 +7,7 @@ public class SpawnerScript : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        SpawnedObjects = new List<GameObject>();
         foreach (GameObject g in TokenObjects) {
             g.transform.localScale = new Vector3(50, 50, 50);
             g.transform.position = new Vector3(0, 0, 0);
@@ -15,7 +16,7 @@ public class SpawnerScript : MonoBehaviour
     }
 
     void Update() {
-        DestroyCoin();
+
     }
 
     bool checkDistance(Vector3 left, Vector3 right) {
@@ -26,16 +27,6 @@ public class SpawnerScript : MonoBehaviour
         SpawnObject = TokenObjects[Random.Range(0, TokenObjects.Length)];
         SpawnedObjects.Add(Instantiate(SpawnObject, GetComponent<BalloonMovement>().currentWaypoint, false));
         coinCount++;
-    }
-
-    void DestroyCoin() {
-        // check to see if we're close to any of the coins,
-        // and if so, destroy it
-        for (int i = 0; i < SpawnedObjects.Count; i++) {
-            if (checkDistance(transform.position, SpawnedObjects[i].transform.position)) {
-                Destroy(SpawnedObjects[i]);
-            }
-        }
     }
 
     private GameObject SpawnObject;
