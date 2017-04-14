@@ -16,5 +16,8 @@ public class SaveGameSettingsScript : MonoBehaviour {
         GameSettingsControl.Instance.baselinePercentage = percentageSliderObj.value;
         GameSettingsControl.Instance.restDuration = restDurationSlider.value;
         GameSettingsControl.Instance.swallowDuration = swallowDurationSlider.value;
+
+        GameSettingsControl.Instance.towerTumbleScore = 0.0f;
+        GameSettingsControl.Instance.towerTumbleBestSwallow = 0.0f;
     }
 }

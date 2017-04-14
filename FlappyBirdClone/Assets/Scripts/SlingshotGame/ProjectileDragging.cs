@@ -43,9 +43,11 @@ public class ProjectileDragging : MonoBehaviour {
         //timeBetweenSwallows = 2.0f;
         restTimeLeft = timeBetweenSwallows;
 
-        swallowingWindowTimer = 3.0f;
+        swallowingWindowTimer = 2.0f;
         swallowingWindow = 2.0f;
 
+        // update scores 
+        GameSettingsControl.Instance.towerTumbleBestSwallow = 0.0f;
         winningForce = new Vector3(100, 40, 0);
     }
 	void Start () {
@@ -53,6 +55,8 @@ public class ProjectileDragging : MonoBehaviour {
 	}
 	
 	void Update () {
+
+        // check the input from emg, if good check for success (temp for now)
 
         //timerText.text = restTimeLeft.ToString("f2");
         swallowText.text = "Time to swallow: " + swallowingWindowTimer.ToString("f2");
@@ -65,8 +69,7 @@ public class ProjectileDragging : MonoBehaviour {
             restTimeLeft -= Time.deltaTime;
             return;
         }
-
-        if (restTimeLeft <= 0 && swallowingWindowTimer >= 0)
+        else if (restTimeLeft <= 0 && swallowingWindowTimer >= 0)
         {
             commandText.text = "Swallow!";
             swallowingWindowTimer -= Time.deltaTime;
@@ -83,9 +86,7 @@ public class ProjectileDragging : MonoBehaviour {
         {
             // do nothing
         }
-
-        // check the input from emg, if good check for success (temp for now)
-    }
+    }   
 
     void OnMouseDown(){
 
@@ -107,6 +108,14 @@ public class ProjectileDragging : MonoBehaviour {
 
                 // add force
                 rb.AddForce(new Vector3((winningForce.x * percentageThere), winningForce.y, 0), ForceMode2D.Impulse);
+            }
+
+            // update best score 
+            if (tempInput > GameSettingsControl.Instance.towerTumbleBestSwallow)
+            {
+                GameSettingsControl.Instance.towerTumbleBestSwallow = tempInput;
+                bestSwallow.text = "Best swallow: " + GameSettingsControl.Instance.towerTumbleBestSwallow.ToString("f2");
+                currentSwallow.text = "Current swallow: " + tempInput.ToString("f2");
             }
 
             // reset timers
