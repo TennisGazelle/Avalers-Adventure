@@ -11,15 +11,16 @@ public class ProjectileDragging : MonoBehaviour {
     public Text swallowText;
 
     public Text bestSwallow;
-    public Text currentSwallow; 
+    public Text currentSwallow;
+    public Text targetScore;
 
 
     //private SpringJoint2D spring;
     private Rigidbody2D rb;
 
     //game settings
-    private float baseline = GameSettingsControl.Instance.baselineSwallow;
-    private float percentageOfBaseline = GameSettingsControl.Instance.baselinePercentage;
+    private float baseline;
+    private float percentageOfBaseline;
 
     private float tempInput;
     private float targetValue;
@@ -37,12 +38,17 @@ public class ProjectileDragging : MonoBehaviour {
     {
         rb = GetComponent<Rigidbody2D>();
 
-        tempInput = 50.0f;
-        //targetValue = baseline * percentageOfBaseline * (0.01f);
-        targetValue = 50.0f;
+        baseline = GameSettingsControl.Instance.baselineSwallow;
+        percentageOfBaseline = GameSettingsControl.Instance.baselinePercentage;
 
         timeBetweenSwallows = GameSettingsControl.Instance.restDuration;
-        //timeBetweenSwallows = 2.0f;
+        //timeBetweenSwallows = 1.5f;
+
+        tempInput = 50.0f;
+        targetValue = baseline * percentageOfBaseline * (0.01f);
+        //targetValue = 50.0f;
+        targetScore.text = "Target: " + targetValue.ToString("f2");
+        
         restTimeLeft = timeBetweenSwallows;
 
         swallowingWindowTimer = 1.5f;
