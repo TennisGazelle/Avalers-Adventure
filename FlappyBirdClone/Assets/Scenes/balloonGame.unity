@@ -7519,7 +7519,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TokenObjects:
-  - {fileID: 561356335}
+  - {fileID: 1345448366717174, guid: 26859bf06a1979740b1df5dd679f20ad, type: 2}
   timeMin: 2
   timeMax: 2
   coinCount: 0
@@ -11403,69 +11403,6 @@ Canvas:
 Transform:
   m_PrefabParentObject: {fileID: 466784, guid: ab2e6c9e7870ec14cbf09d1086236ae3, type: 2}
   m_PrefabInternal: {fileID: 1089101232}
---- !u!1001 &561356334
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4734170849721352, guid: 36cc40b8073ae0d4a91b1612c7342255, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4734170849721352, guid: 36cc40b8073ae0d4a91b1612c7342255, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4734170849721352, guid: 36cc40b8073ae0d4a91b1612c7342255, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4734170849721352, guid: 36cc40b8073ae0d4a91b1612c7342255, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4734170849721352, guid: 36cc40b8073ae0d4a91b1612c7342255, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4734170849721352, guid: 36cc40b8073ae0d4a91b1612c7342255, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4734170849721352, guid: 36cc40b8073ae0d4a91b1612c7342255, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4734170849721352, guid: 36cc40b8073ae0d4a91b1612c7342255, type: 2}
-      propertyPath: m_RootOrder
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 1345448366717174, guid: 36cc40b8073ae0d4a91b1612c7342255, type: 2}
-      propertyPath: m_Name
-      value: GoldIngotReward
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 36cc40b8073ae0d4a91b1612c7342255, type: 2}
-  m_IsPrefabParent: 0
---- !u!1 &561356335 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1345448366717174, guid: 36cc40b8073ae0d4a91b1612c7342255,
-    type: 2}
-  m_PrefabInternal: {fileID: 561356334}
---- !u!65 &561356339
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 561356335}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.16, y: 0.15, z: 0.36}
-  m_Center: {x: 0, y: 0.01, z: 0}
 --- !u!1 &562027002
 GameObject:
   m_ObjectHideFlags: 0

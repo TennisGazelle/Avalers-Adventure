@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4734170849721352}
   - component: {fileID: 95501542016127122}
   - component: {fileID: 114310258757965008}
+  - component: {fileID: 65117796866110146}
   m_Layer: 0
   m_Name: GoldIngotReward 1
   m_TagString: Untagged
@@ -65,8 +66,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1345448366717174}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 50, y: 50, z: 50}
   m_Children:
   - {fileID: 4005234383472400}
   m_Father: {fileID: 0}
@@ -110,6 +111,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1461579779270194}
   m_Mesh: {fileID: 4300000, guid: 825dc207bf01b7e4bab4a7b500b96d1e, type: 3}
+--- !u!65 &65117796866110146
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1345448366717174}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.16, y: 0.15, z: 0.36}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!95 &95501542016127122
 Animator:
   serializedVersion: 3
@@ -135,9 +148,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1345448366717174}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d5674b16b1b3074a9bc394fcc11d139, type: 3}
+  m_Script: {fileID: 11500000, guid: 8994df7f20598b641b3580d96fa22b42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   period: 3.26
   amplitude: 0.87
   offsetInY: 0
+  constantYOffset: 0
