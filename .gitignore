@@ -57,5 +57,5 @@ $RECYCLE.BIN/
 *.blend
 *.blend1
 
-*.meta
-*.sln
+#*.meta
+#*.sln
