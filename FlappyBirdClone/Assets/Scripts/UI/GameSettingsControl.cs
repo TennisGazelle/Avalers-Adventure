@@ -11,6 +11,9 @@ public class GameSettingsControl : MonoBehaviour
     public float restDuration;
     public float swallowDuration;
 
+    public float towerTumbleScore;
+    public float towerTumbleBestSwallow;
+
     void Awake()
     {
         if (Instance == null)
