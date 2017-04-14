@@ -83,7 +83,7 @@ public class ReceieveUDPStream : MonoBehaviour {
 
     
     public bool hasTypicalHappened() {
-        typicalCheck = lastnum > 40 || lastnum > GameSettingsControl.Instance.baselineSwallow;
+        typicalCheck = lastnum > GameSettingsControl.Instance.baselineSwallow;
 
         if (typicalCheck == lastTypicalCheck) {
             return false;

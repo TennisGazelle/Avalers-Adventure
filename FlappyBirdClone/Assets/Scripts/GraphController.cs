@@ -77,7 +77,7 @@ public class GraphController : MonoBehaviour {
         maxText.text = "Max: " + maxValue;
         minText.text = "Min: " + minValue;
         CurrentValueText.text = "Current Value: " + currentValue;
-        //scoreText = ScoreManagerScript.Score.ToString.;
+        scoreText.text = "Score: " + ScoreManagerScript.Score;
     }
 
     void drawLine()
