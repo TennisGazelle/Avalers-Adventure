@@ -1,12 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//using UnityEngine.SceneManagement;
+using UnityEngine.SceneManagement;
 
 public class GameResetter : MonoBehaviour {
     
     //reset speeds 
-    public float resetSpeed = 1.0f;
+    public float resetSpeed;
     public float resetSpeedSqr;
 
     // asteroid attributes
@@ -45,6 +45,7 @@ public class GameResetter : MonoBehaviour {
 
         originalAstRotation = astTransform.rotation;
 
+        resetSpeed = 1.0f;
         resetSpeedSqr = resetSpeed * resetSpeed;
 
         houseCounter = 0;
@@ -75,11 +76,18 @@ public class GameResetter : MonoBehaviour {
                 houseCounter++;
             }
         }
-	}
+
+        if (houseCounter == 9)
+        {
+            // go to end screen
+            SceneManager.LoadScene(6);
+        }
+    }
 
     void Reset()
     {
         // reset ball
+        rb.velocity = new Vector3(0, 0, 0);
         astTransform.position = originalAstPosition;
         astTransform.rotation = Quaternion.Slerp(astTransform.transform.rotation, originalAstRotation, Time.time * rotationResetSpeed);
 
