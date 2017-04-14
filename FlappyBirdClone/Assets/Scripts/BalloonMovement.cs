@@ -25,9 +25,12 @@ public class BalloonMovement : MonoBehaviour {
             rb.AddForce(winningForce, ForceMode.Force);
 
         }
-       // if (transform.position.y < 4.4f) {
-       //     transform.position += new Vector3(0, transform.position.y*0.01f, 0);
-      //  }
+        Quaternion neededRotation = Quaternion.LookRotation(currentWaypoint.position - transform.position);
+        Quaternion rot = new Quaternion(transform.rotation.x, neededRotation.y, transform.rotation.z, neededRotation.w);
+        transform.rotation = Quaternion.Slerp(transform.rotation, rot, 1f * Time.deltaTime);
+        // if (transform.position.y < 4.4f) {
+        //     transform.position += new Vector3(0, transform.position.y*0.01f, 0);
+        //  }
     }
 
     void OnMouseDown()
@@ -49,6 +52,8 @@ public class BalloonMovement : MonoBehaviour {
     void GetNewWaypoint()
     {
         currentWaypoint = currentWaypoint.GetComponent<WaypointReachablePath>().GetReachablePaths()[0];
-		transform.LookAt (currentWaypoint);
+  
+
+		//transform.LookAt (currentWaypoint);
     }
 }
