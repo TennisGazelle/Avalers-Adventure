@@ -15,11 +15,14 @@ public class GraphController : MonoBehaviour {
     public Text CurrentValueText;
     public Text maxText;
     public Text minText;
+    public Text scoreText;
 
     public GameObject background;
     public GameObject upperGoalBound;
     public GameObject lowerGoalBound;
     public GameObject lineRenderer;
+
+    public ScoreManagerScript scoreManager;
 
     private float previousValue = 0;
     private float currentValue = 0;
@@ -74,7 +77,7 @@ public class GraphController : MonoBehaviour {
         maxText.text = "Max: " + maxValue;
         minText.text = "Min: " + minValue;
         CurrentValueText.text = "Current Value: " + currentValue;
-        
+        //scoreText = ScoreManagerScript.Score.ToString.;
     }
 
     void drawLine()
