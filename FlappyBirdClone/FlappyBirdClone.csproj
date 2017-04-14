@@ -116,6 +116,7 @@
     <Compile Include="Assets\Scripts\RepeatingBackground.cs" />
     <Compile Include="Assets\Scripts\RotatingBehavior.cs" />
     <Compile Include="Assets\Scripts\ScoreManagerScript.cs" />
+    <Compile Include="Assets\Scripts\ScoreTextController.cs" />
     <Compile Include="Assets\Scripts\SharkMovement.cs" />
     <Compile Include="Assets\Scripts\SlingshotGame\GameResetter.cs" />
     <Compile Include="Assets\Scripts\SlingshotGame\PlankResetter.cs" />

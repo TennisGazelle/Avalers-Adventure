@@ -25,7 +25,10 @@ public class SpawnerScript : MonoBehaviour
 
     void GenerateCoin() {
         SpawnObject = TokenObjects[Random.Range(0, TokenObjects.Length)];
-        SpawnedObjects.Add(Instantiate(SpawnObject, GetComponent<BalloonMovement>().currentWaypoint, false));
+        Transform wp = GetComponent<BalloonMovement>().currentWaypoint;
+        Transform spawnLoc = wp;
+        spawnLoc.position = new Vector3(wp.position.x, wp.position.y + 20f, wp.position.z);
+        SpawnedObjects.Add(Instantiate(SpawnObject, spawnLoc, false));
         coinCount++;
     }
 
