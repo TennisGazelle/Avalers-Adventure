@@ -23,10 +23,11 @@ public class BalloonMovement : MonoBehaviour {
         if (Input.GetKeyDown("space") || stream.hasTypicalHappened())
         {
             rb.AddForce(winningForce, ForceMode.Force);
+
         }
-        if (transform.position.y < 4.4f) {
-            transform.position += new Vector3(0, transform.position.y*0.01f, 0);
-        }
+       // if (transform.position.y < 4.4f) {
+       //     transform.position += new Vector3(0, transform.position.y*0.01f, 0);
+      //  }
     }
 
     void OnMouseDown()
@@ -36,9 +37,10 @@ public class BalloonMovement : MonoBehaviour {
 
     void MoveToWaypoint()
     {
-        transform.position = Vector3.MoveTowards(transform.position, currentWaypoint.transform.position, 10 * Time.deltaTime);
+		Vector3 newPos = new Vector3 (currentWaypoint.position.x, transform.position.y, currentWaypoint.position.z);
+		transform.position = Vector3.MoveTowards(transform.position, newPos, moveSpeed * Time.deltaTime);
 
-        if (Vector3.Distance(currentWaypoint.transform.position, transform.position) < 1)
+		if (Vector3.Distance(newPos, transform.position) < 1)
         {
             GetNewWaypoint();
         }
@@ -47,6 +49,6 @@ public class BalloonMovement : MonoBehaviour {
     void GetNewWaypoint()
     {
         currentWaypoint = currentWaypoint.GetComponent<WaypointReachablePath>().GetReachablePaths()[0];
-        GetComponent<SpawnerScript>().Invoke("GenerateCoin", 0.0f);
+		transform.LookAt (currentWaypoint);
     }
 }
