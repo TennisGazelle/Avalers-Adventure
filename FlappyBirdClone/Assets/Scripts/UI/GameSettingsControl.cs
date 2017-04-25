@@ -11,6 +11,8 @@ public class GameSettingsControl : MonoBehaviour
     public float restDuration;
     public float swallowDuration;
 
+    public enum SwallowingType { BALLISTIC_TYPICAL, BALLISTIC_EFFORTFUL, MENDELSOHN };
+
     public float towerTumbleScore;
     public float towerTumbleBestSwallow;
 

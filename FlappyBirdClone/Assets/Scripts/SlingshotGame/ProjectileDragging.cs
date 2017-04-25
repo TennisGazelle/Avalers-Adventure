@@ -40,7 +40,7 @@ public class ProjectileDragging : MonoBehaviour {
 
         baseline = GameSettingsControl.Instance.baselineSwallow;
         percentageOfBaseline = GameSettingsControl.Instance.baselinePercentage;
-
+        
         timeBetweenSwallows = GameSettingsControl.Instance.restDuration;
         //timeBetweenSwallows = 1.5f;
 
