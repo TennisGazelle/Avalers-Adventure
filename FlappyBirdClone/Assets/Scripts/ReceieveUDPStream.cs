@@ -85,7 +85,7 @@ public class ReceieveUDPStream : MonoBehaviour {
 
     
     public bool hasTypicalHappened() {
-        return hasTypicalStaticHappened();
+        //return hasTypicalStaticHappened();
         typicalCheck = lastnum > GameSettingsControl.Instance.baselineSwallow;
 
         if (typicalCheck == lastTypicalCheck) {
