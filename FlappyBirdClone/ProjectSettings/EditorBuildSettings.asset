@@ -17,3 +17,5 @@ EditorBuildSettings:
     path: Assets/Scenes/SlingshotGame/SlingshotStartMenu.unity
   - enabled: 1
     path: Assets/Scenes/SlingshotGame/SlingshotGame.unity
+  - enabled: 1
+    path: Assets/Scenes/SlingshotGame/SlingshotEnd.unity
