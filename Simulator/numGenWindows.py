@@ -2,12 +2,12 @@ import math
 import time
 import random
 import socket
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 
 import sys
 import select
-import termios
-import KeyPoller
+#import termios
+#import KeyPoller
 
 import SerialManager
 
@@ -42,11 +42,11 @@ class GraphManager:
 		self.dataBuffer = dBuffer
 
 		# set the plot as "animated"
-		plt.ion()
+		#plt.ion()
 		# grab the line for updating
-		self.line, = plt.plot(self.dataBuffer)
+		#self.line, = plt.plot(self.dataBuffer)
 		# set the y axis
-		plt.ylim([0,100])
+		#plt.ylim([0,100])
 
 		self.swallows = {
 			"typical" : {
@@ -93,18 +93,18 @@ class GraphManager:
 			# update the axis
 			ymin = float(min(self.dataBuffer))-1
 			ymax = float(max(self.dataBuffer))+10
-			plt.ylim([ymin, ymax])
+			#plt.ylim([ymin, ymax])
 
 			# add the new datapoint to the buffer
 			self.dataBuffer.append(point)
 			del self.dataBuffer[0]
 
 			# reset the data
-			self.line.set_xdata(range(0, len(self.dataBuffer)))
-			self.line.set_ydata(self.dataBuffer)
+			#self.line.set_xdata(range(0, len(self.dataBuffer)))
+			#self.line.set_ydata(self.dataBuffer)
 
 			# draw
-			plt.draw()
+			#plt.draw()
 
 	def startTypicalSwallow(self):
 		print ("starting typical swallow")
@@ -148,55 +148,56 @@ def sendData(point):
 	#print 
 	#print packetData, "sent"
 
-def main():
-	buffer_size = 100
+# def main():
+# 	buffer_size = 100
 
-	graph = GraphManager([0] * buffer_size)
-	counter = 0
-	kp = KeyPoller.KeyPoller()
-	se = SerialManager.SerialManager()
+# 	graph = GraphManager([0] * buffer_size)
+# 	counter = 0
+# 	kp = KeyPoller()
+# 	se = SerialManager.SerialManager()
 
-	while 1:
-		# get the data point, send it and draw it
-		swallowData = se.getNextValue()
-		if swallowData is None:
-			swallowData = graph.getDataPoint()
+# 	while 1:
+# 		# get the data point, send it and draw it
+# 		swallowData = se.getNextValue()
+# 		if swallowData is None:
+# 			swallowData = graph.getDataPoint()
 
-		sendData(swallowData)
-		graph.updateGraph(swallowData)
+# 		sendData(swallowData)
+# 		graph.updateGraph(swallowData)
 
-		counter += 1
+# 		counter += 1
 
-		# check for keyboard input
-		c = kp.poll()
-		if c is not None:
-			# if it is, pick the approrpiate swallow and initialize counter
-			print ('keyboard detected as {}'.format(c))
-			if c == 't' or c == 'T' or counter % 30 == 0:
-				graph.startTypicalSwallow()
-			elif c == 'e' or c == 'E':
-				graph.startEffortfulSwallow()
-			elif c == 'm' or c == 'M':
-				graph.startMendelsohnSwallow()
-			elif c == 'p' or c == 'P':
-				graph.pauseGraph()
-			elif c == 'r' or c == 'R':
-				graph.resumeGraph()
-			elif c == 'a' or c == 'A':
-				se.attemptConnection()
-			elif c == 'q' or c == 'Q':
-				break
+# 		# check for keyboard input
+# 		c = kp.poll()
+# 		if c is not None:
+# 			# if it is, pick the approrpiate swallow and initialize counter
+# 			print ('keyboard detected as {}'.format(c))
+# 			if c == 't' or c == 'T' or counter % 30 == 0:
+# 				graph.startTypicalSwallow()
+# 			elif c == 'e' or c == 'E':
+# 				graph.startEffortfulSwallow()
+# 			elif c == 'm' or c == 'M':
+# 				graph.startMendelsohnSwallow()
+# 			elif c == 'p' or c == 'P':
+# 				graph.pauseGraph()
+# 			elif c == 'r' or c == 'R':
+# 				graph.resumeGraph()
+# 			elif c == 'a' or c == 'A':
+# 				se.attemptConnection()
+# 			elif c == 'q' or c == 'Q':
+# 				break
 
 		#print counter, swallowData
 		# wait
 		#time.sleep(.1)
 
-# def emergencyMain():
-# 	ser = SerialManager.SerialManager()
-# 	while True:
-# 		value = ser.getNextValue().lstrip("b'").rstrip("\\r\\n'")
-# 		sendData(value)
+def emergencyMain():
+	ser = SerialManager.SerialManager()
+	while True:
+		value = ser.getNextValue().lstrip("b'").rstrip("\\r\\n'")
+		sendData(value)
+		print (value)
 
 
 if __name__ == '__main__':
-	main()
+	emergencyMain()
