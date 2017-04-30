@@ -7377,6 +7377,7 @@ MonoBehaviour:
   baselinePercentage: 0
   restDuration: 0
   swallowDuration: 0
+  waitForInput: 0
   score: 0
   bestSwallow: 0
 --- !u!4 &1541864376

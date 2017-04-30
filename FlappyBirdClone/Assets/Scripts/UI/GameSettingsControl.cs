@@ -10,6 +10,7 @@ public class GameSettingsControl : MonoBehaviour
     public float baselinePercentage;
     public float restDuration;
     public float swallowDuration;
+    public bool waitForInput; 
 
     public enum SwallowingType { BALLISTIC_TYPICAL, BALLISTIC_EFFORTFUL, MENDELSOHN };
 
