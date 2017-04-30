@@ -7377,7 +7377,7 @@ MonoBehaviour:
   baselinePercentage: 0
   restDuration: 0
   swallowDuration: 0
-  waitForInput: 0
+  continousGameplay: 0
   score: 0
   bestSwallow: 0
 --- !u!4 &1541864376
@@ -10023,7 +10023,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Time to swallow:'
+  m_Text: 
 --- !u!222 &2029118586
 CanvasRenderer:
   m_ObjectHideFlags: 0

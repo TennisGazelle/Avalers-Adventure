@@ -21,6 +21,7 @@ public class ProjectileDragging : MonoBehaviour {
     //game settings
     private float baseline;
     private float percentageOfBaseline;
+    private bool continousGameplay;
 
     private float tempInput;
     private float targetValue;
@@ -44,13 +45,13 @@ public class ProjectileDragging : MonoBehaviour {
 
         baseline = GameSettingsControl.Instance.baselineSwallow;
         percentageOfBaseline = GameSettingsControl.Instance.baselinePercentage;
+        continousGameplay = GameSettingsControl.Instance.continousGameplay; 
         
         timeBetweenSwallows = GameSettingsControl.Instance.restDuration;
-        //timeBetweenSwallows = 1.5f;
 
         tempInput = 50.0f;
+
         targetValue = baseline * percentageOfBaseline * (0.01f);
-        //targetValue = 50.0f;
         targetScore.text = "Target: " + targetValue.ToString("f2");
         
         restTimeLeft = timeBetweenSwallows;
@@ -76,8 +77,8 @@ public class ProjectileDragging : MonoBehaviour {
 
         // check the input from emg, if good check for success (temp for now)
 
-        //timerText.text = restTimeLeft.ToString("f2");
-        swallowText.text = "Time to swallow: " + swallowingWindowTimer.ToString("f2");
+        if (continousGameplay)
+            swallowText.text = "Time to swallow: " + swallowingWindowTimer.ToString("f2");
 
         // update rest timer 
         if (restTimeLeft > 0)
@@ -100,7 +101,7 @@ public class ProjectileDragging : MonoBehaviour {
             return;
         }
         // no swallow in time, reset everything
-        else if (restTimeLeft <= 0 && swallowingWindowTimer <= 0)
+        else if (restTimeLeft <= 0 && swallowingWindowTimer <= 0 && continousGameplay)
         {
             restTimeLeft = timeBetweenSwallows;
             swallowingWindowTimer = 2.0f;

@@ -20,6 +20,6 @@ public class SaveGameSettingsScript : MonoBehaviour {
 
         GameSettingsControl.Instance.score = 0.0f;
         GameSettingsControl.Instance.bestSwallow = 0.0f;
-        GameSettingsControl.Instance.waitForInput = waitForInputToggle.isOn;
+        GameSettingsControl.Instance.continousGameplay = waitForInputToggle.isOn;
     }
 }
