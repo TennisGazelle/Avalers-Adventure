@@ -13,8 +13,8 @@ public class GameSettingsControl : MonoBehaviour
 
     public enum SwallowingType { BALLISTIC_TYPICAL, BALLISTIC_EFFORTFUL, MENDELSOHN };
 
-    public float towerTumbleScore;
-    public float towerTumbleBestSwallow;
+    public float score;
+    public float bestSwallow;
 
     void Awake()
     {

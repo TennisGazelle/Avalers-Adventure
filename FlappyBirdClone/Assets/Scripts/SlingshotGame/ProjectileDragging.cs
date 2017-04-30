@@ -59,7 +59,7 @@ public class ProjectileDragging : MonoBehaviour {
         swallowingWindow = 2.0f;
 
         // update scores 
-        GameSettingsControl.Instance.towerTumbleBestSwallow = 0.0f;
+        GameSettingsControl.Instance.bestSwallow = 0.0f;
         winningForce = new Vector3(100, 40, 0);
     }
 	void Start () {
@@ -139,10 +139,10 @@ public class ProjectileDragging : MonoBehaviour {
             }
 
             // update best score 
-            if (gameInput > GameSettingsControl.Instance.towerTumbleBestSwallow)
+            if (gameInput > GameSettingsControl.Instance.bestSwallow)
             {
-                GameSettingsControl.Instance.towerTumbleBestSwallow = gameInput;
-                bestSwallow.text = "Best swallow: " + GameSettingsControl.Instance.towerTumbleBestSwallow.ToString("f2");
+                GameSettingsControl.Instance.bestSwallow = gameInput;
+                bestSwallow.text = "Best swallow: " + GameSettingsControl.Instance.bestSwallow.ToString("f2");
                 currentSwallow.text = "Current swallow: " + gameInput.ToString("f2");
             }
 
@@ -178,10 +178,10 @@ public class ProjectileDragging : MonoBehaviour {
             }
 
             // update best score 
-            if (tempInput > GameSettingsControl.Instance.towerTumbleBestSwallow)
+            if (tempInput > GameSettingsControl.Instance.bestSwallow)
             {
-                GameSettingsControl.Instance.towerTumbleBestSwallow = tempInput;
-                bestSwallow.text = "Best swallow: " + GameSettingsControl.Instance.towerTumbleBestSwallow.ToString("f2");
+                GameSettingsControl.Instance.bestSwallow = tempInput;
+                bestSwallow.text = "Best swallow: " + GameSettingsControl.Instance.bestSwallow.ToString("f2");
                 currentSwallow.text = "Current swallow: " + tempInput.ToString("f2");
             }
 
