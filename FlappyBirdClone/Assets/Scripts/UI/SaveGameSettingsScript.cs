@@ -17,7 +17,7 @@ public class SaveGameSettingsScript : MonoBehaviour {
         GameSettingsControl.Instance.restDuration = restDurationSlider.value;
         GameSettingsControl.Instance.swallowDuration = swallowDurationSlider.value;
 
-        GameSettingsControl.Instance.towerTumbleScore = 0.0f;
-        GameSettingsControl.Instance.towerTumbleBestSwallow = 0.0f;
+        GameSettingsControl.Instance.score = 0.0f;
+        GameSettingsControl.Instance.bestSwallow = 0.0f;
     }
 }
