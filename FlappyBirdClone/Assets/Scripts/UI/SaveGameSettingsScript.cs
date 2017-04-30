@@ -9,6 +9,7 @@ public class SaveGameSettingsScript : MonoBehaviour {
     public InputField inputFieldObj;
     public Slider restDurationSlider;
     public Slider swallowDurationSlider;
+    public Toggle waitForInputToggle;
 
 	// Update is called once per frame
 	public void saveGame () {
@@ -19,5 +20,6 @@ public class SaveGameSettingsScript : MonoBehaviour {
 
         GameSettingsControl.Instance.score = 0.0f;
         GameSettingsControl.Instance.bestSwallow = 0.0f;
+        GameSettingsControl.Instance.continousGameplay = waitForInputToggle.isOn;
     }
 }
