@@ -692,6 +692,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dae9f67218bccfd459b4f6de483aa233, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stream: {fileID: 0}
+  currentWaypoint: {fileID: 0}
+  moveSpeed: 5
+  upSpeed: 10
 --- !u!114 &389664300
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1205,10 +1209,12 @@ MonoBehaviour:
   CurrentValueText: {fileID: 1230704625}
   maxText: {fileID: 1428121739}
   minText: {fileID: 668279218}
+  scoreText: {fileID: 0}
   background: {fileID: 1950856898}
   upperGoalBound: {fileID: 640713310}
   lowerGoalBound: {fileID: 1904814141}
   lineRenderer: {fileID: 686397401}
+  scoreManager: {fileID: 0}
 --- !u!224 &502265396
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4153,6 +4159,8 @@ MonoBehaviour:
   baselinePercentage: 0
   restDuration: 0
   swallowDuration: 0
+  towerTumbleScore: 0
+  towerTumbleBestSwallow: 0
 --- !u!4 &1402213503
 Transform:
   m_ObjectHideFlags: 0
@@ -4551,7 +4559,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a32857aaf63dcf41ac438b42b1956ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  smoothing: 15.75
   Player: {fileID: 389664298}
 --- !u!45 &1589715187
 Skybox:

@@ -1385,7 +1385,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   optionsPanel: {fileID: 1293877442015680}
   optionsTint: {fileID: 1574707616843450}
-  menuPanel: {fileID: 0}
+  menuPanel: {fileID: 1436901289940524, guid: 9d266d7c34c114f739c58c0c8d87bf9c, type: 2}
   pausePanel: {fileID: 1567814170402478}
 --- !u!114 &114024225564933530
 MonoBehaviour:
