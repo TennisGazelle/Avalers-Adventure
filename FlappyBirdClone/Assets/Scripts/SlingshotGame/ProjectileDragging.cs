@@ -31,16 +31,20 @@ public class ProjectileDragging : MonoBehaviour {
     private float swallowingWindowTimer;
     private float swallowingWindow;
 
+    private bool isPaused;
+
     public bool isShot;
 
 
     void Awake()
     {
+        isPaused = false;
+
         rb = GetComponent<Rigidbody2D>();
 
         baseline = GameSettingsControl.Instance.baselineSwallow;
         percentageOfBaseline = GameSettingsControl.Instance.baselinePercentage;
-
+        
         timeBetweenSwallows = GameSettingsControl.Instance.restDuration;
         //timeBetweenSwallows = 1.5f;
 
@@ -64,6 +68,12 @@ public class ProjectileDragging : MonoBehaviour {
 	
 	void Update () {
 
+        // if paused skip everything
+        if (isPaused)
+        {
+            return;
+        }
+
         // check the input from emg, if good check for success (temp for now)
 
         //timerText.text = restTimeLeft.ToString("f2");
@@ -77,15 +87,21 @@ public class ProjectileDragging : MonoBehaviour {
             restTimeLeft -= Time.deltaTime;
             return;
         }
+        // swallow window, check for input
         else if (restTimeLeft <= 0 && swallowingWindowTimer >= 0)
         {
             commandText.text = "Swallow!";
+            // check udp input, if larger than noise.. call swallowInput
+            /*if (GameObject.Find("GlobalGameData").GetComponent<ReceieveUDPStream>().hasTypicalHappened()){
+             * swallowInput(ReceieveUDPStream.lastnum);
+             * }
+             */
             swallowingWindowTimer -= Time.deltaTime;
             return;
         }
+        // no swallow in time, reset everything
         else if (restTimeLeft <= 0 && swallowingWindowTimer <= 0)
         {
-            //commandText.text = "Not quick enough";
             restTimeLeft = timeBetweenSwallows;
             swallowingWindowTimer = 2.0f;
             return;
@@ -94,7 +110,47 @@ public class ProjectileDragging : MonoBehaviour {
         {
             // do nothing
         }
-    }   
+    }
+
+    void swallowInput(float gameInput)
+    {
+
+        float percentageThere;
+
+        if (restTimeLeft <= 0 && swallowingWindowTimer <= swallowingWindow)
+        {
+            // trigger is shot 
+            isShot = true;
+
+            // turn make dynamic so physics can work
+            rb.bodyType = RigidbodyType2D.Dynamic;
+            rb.angularDrag = 3f;
+
+            if (gameInput >= targetValue)
+            {
+                rb.AddForce(winningForce, ForceMode2D.Impulse);
+            }
+            else
+            {
+                percentageThere = gameInput / targetValue;
+
+                // add force
+                rb.AddForce(new Vector3((winningForce.x * percentageThere), winningForce.y, 0), ForceMode2D.Impulse);
+            }
+
+            // update best score 
+            if (gameInput > GameSettingsControl.Instance.towerTumbleBestSwallow)
+            {
+                GameSettingsControl.Instance.towerTumbleBestSwallow = gameInput;
+                bestSwallow.text = "Best swallow: " + GameSettingsControl.Instance.towerTumbleBestSwallow.ToString("f2");
+                currentSwallow.text = "Current swallow: " + gameInput.ToString("f2");
+            }
+
+            // reset timers
+            restTimeLeft = timeBetweenSwallows;
+            swallowingWindowTimer = 0.0f;
+        }
+    }
 
     void OnMouseDown(){
 
@@ -132,6 +188,18 @@ public class ProjectileDragging : MonoBehaviour {
             // reset timers
             restTimeLeft = timeBetweenSwallows;
             swallowingWindowTimer = 0.0f;
+        }
+    }
+
+    public void pauseGame()
+    {
+        if (isPaused)
+        {
+            isPaused = false;
+        }
+        else
+        {
+            isPaused = true;
         }
     }
 }

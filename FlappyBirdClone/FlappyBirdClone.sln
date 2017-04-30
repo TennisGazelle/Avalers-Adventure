@@ -6,6 +6,13 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlappyBirdClone", "Assembly-CSharp.csproj", "{2242D18A-7F3F-1238-C22D-2CCD6F4951AE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlappyBirdClone", "Assembly-CSharp-Editor-firstpass.csproj", "{A20E65B9-1D38-282A-ADF8-C0928EDD4FE8}"
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2015
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlappyBirdClone.CSharp.Plugins", "FlappyBirdClone.CSharp.Plugins.csproj", "{933C5B56-E29E-8460-559F-CA60BE3DE033}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlappyBirdClone.CSharp", "FlappyBirdClone.CSharp.csproj", "{2125B300-9821-A1F8-E1AE-E54B959BC7E7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlappyBirdClone.CSharp.Editor.Plugins", "FlappyBirdClone.CSharp.Editor.Plugins.csproj", "{044BA928-B5CC-F360-E16F-BFAB96B4F442}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,6 +32,18 @@ Global
 		{A20E65B9-1D38-282A-ADF8-C0928EDD4FE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A20E65B9-1D38-282A-ADF8-C0928EDD4FE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A20E65B9-1D38-282A-ADF8-C0928EDD4FE8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{933C5B56-E29E-8460-559F-CA60BE3DE033}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{933C5B56-E29E-8460-559F-CA60BE3DE033}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{933C5B56-E29E-8460-559F-CA60BE3DE033}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{933C5B56-E29E-8460-559F-CA60BE3DE033}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2125B300-9821-A1F8-E1AE-E54B959BC7E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2125B300-9821-A1F8-E1AE-E54B959BC7E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2125B300-9821-A1F8-E1AE-E54B959BC7E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2125B300-9821-A1F8-E1AE-E54B959BC7E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{044BA928-B5CC-F360-E16F-BFAB96B4F442}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{044BA928-B5CC-F360-E16F-BFAB96B4F442}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{044BA928-B5CC-F360-E16F-BFAB96B4F442}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{044BA928-B5CC-F360-E16F-BFAB96B4F442}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

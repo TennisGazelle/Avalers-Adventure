@@ -38,7 +38,7 @@ public class GraphController : MonoBehaviour {
     List<Vector3> dataPoints;
 
     //Use this for initialization
-	void Awake () {
+	void Start () {
         lowerGoalHeight = GameSettingsControl.Instance.baselineSwallow;
         //lowerGoalHeight = upperGoalHeight * 0.4f;
 

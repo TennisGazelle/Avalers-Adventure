@@ -21,7 +21,7 @@ public class ReceieveUDPStream : MonoBehaviour {
     string allReceivedPackets = "";
 
     public ArrayList incomingData;
-    public float lastnum = 0;
+    public static float lastnum = 0;
 
     private bool typicalCheck, lastTypicalCheck;
 
@@ -63,7 +63,7 @@ public class ReceieveUDPStream : MonoBehaviour {
                 lastReceivedPacket = text;
                 allReceivedPackets = allReceivedPackets + text;
 
-                float normalizedValue = int.Parse(text) / highestValue * 100.0f;
+                float normalizedValue = float.Parse(text);
                 graph.updateCurrentValue(normalizedValue);
                 incomingData.Add(normalizedValue);
                 lastnum = normalizedValue;
@@ -85,7 +85,7 @@ public class ReceieveUDPStream : MonoBehaviour {
 
     
     public bool hasTypicalHappened() {
-        return hasTypicalStaticHappened();
+        //return hasTypicalStaticHappened();
         typicalCheck = lastnum > GameSettingsControl.Instance.baselineSwallow;
 
         if (typicalCheck == lastTypicalCheck) {
