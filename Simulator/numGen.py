@@ -172,11 +172,11 @@ def main():
 		if c is not None:
 			# if it is, pick the approrpiate swallow and initialize counter
 			print ('keyboard detected as {}'.format(c))
-			if c == 't' or c == 'T' or counter % 30 == 0:
+			if c == 't' or c == 'T' or counter % 50 == 0:
 				graph.startTypicalSwallow()
 			elif c == 'e' or c == 'E':
 				graph.startEffortfulSwallow()
-			elif c == 'm' or c == 'M':
+			elif c == 'm' or c == 'M' or (counter % 100) == 0:
 				graph.startMendelsohnSwallow()
 			elif c == 'p' or c == 'P':
 				graph.pauseGraph()
