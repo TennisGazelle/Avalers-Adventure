@@ -132,6 +132,7 @@
     <Compile Include="Assets\Scripts\UI\SliderTextScript_RestSeconds.cs" />
     <Compile Include="Assets\Scripts\UI\SliderTextScript_Seconds.cs" />
     <Compile Include="Assets\Scripts\WaypointReachablePath.cs" />
+    <Compile Include="Assets\SwallowDetector.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Imports\Game Jam Template\Fonts\OpenSans\License!.txt" />
