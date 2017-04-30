@@ -94,6 +94,7 @@
      <Compile Include="Assets\Scripts\UI\SliderTextScript_RestSeconds.cs" />
      <Compile Include="Assets\Scripts\UI\SliderTextScript_Seconds.cs" />
      <Compile Include="Assets\Scripts\WaypointReachablePath.cs" />
+     <Compile Include="Assets\SwallowDetector.cs" />
      <None Include="Assets\Imports\Palm Trees\Shaders\WavingDoublePassNoCullBackface.shader" />
      <None Include="Assets\Imports\Lava_Flowing_Shader\Shaders\Unlit_Lava_Simple.shader" />
      <None Include="Assets\Imports\Lava_Flowing_Shader\Shaders\Diffuse_Lava_Distort.shader" />
