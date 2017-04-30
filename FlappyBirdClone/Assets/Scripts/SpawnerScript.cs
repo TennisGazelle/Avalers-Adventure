@@ -4,6 +4,20 @@ using System.Collections.Generic;
 
 public class SpawnerScript : MonoBehaviour
 {
+    private GameObject SpawnObject;
+    private List<GameObject> SpawnedObjects;
+    public GameObject[] TokenObjects;
+
+    private Transform nextLocation;
+    private Vector3 spawningLocation;
+    private BalloonMovement bm;
+
+    public float timeMin = 2f;
+    public float timeMax = 2f;
+    public float coinCount = 0;
+
+    private float spawnDistance = 10.0f;
+
     // Use this for initialization
     void Start()
     {
@@ -32,15 +46,20 @@ public class SpawnerScript : MonoBehaviour
         coinCount++;
     }
 
-    private GameObject SpawnObject;
-    private List<GameObject> SpawnedObjects;
-    public GameObject[] TokenObjects;
+    public void SetSpawnDistance(float amount)
+    {
+        spawnDistance = amount;
+    }
 
-    private Transform nextLocation;
-    private Vector3 spawningLocation;
-    private BalloonMovement bm;
+    public void SpawnNextSet(Transform waypoint)
+    {
+        Vector3 origin = GetComponent<Transform>().position;
+        float distance = Vector3.Distance(origin, waypoint.position);
 
-    public float timeMin = 2f;
-    public float timeMax = 2f;
-    public float coinCount = 0;
+    }
+
+    public void RemoveLastSet()
+    {
+
+    }
 }

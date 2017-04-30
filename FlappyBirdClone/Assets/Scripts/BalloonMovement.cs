@@ -35,7 +35,7 @@ public class BalloonMovement : MonoBehaviour {
 
         Quaternion neededRotation = Quaternion.LookRotation(currentWaypoint.position - transform.position);
         Quaternion rot = new Quaternion(transform.rotation.x, neededRotation.y, transform.rotation.z, neededRotation.w);
-        transform.rotation = Quaternion.Slerp(transform.rotation, rot, 1f * Time.deltaTime);
+        transform.rotation = Quaternion.Slerp(transform.rotation, rot, 0.1f * Time.deltaTime);
     }
 
     void OnMouseDown()
