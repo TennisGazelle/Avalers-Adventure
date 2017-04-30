@@ -2,12 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public class WaveformData {
+    public int duration;
+    public float highestValue;
+}
+
 public class SwallowDetector : MonoBehaviour {
     public static SwallowDetector Instance;
     private List<float> noiseSample;
-    private int noiseSampleMax = 100;
+    private int noiseSampleMax = 500;
     private float noiseAV, noiseSD, oldAV, oldSD, threshold;
     private static int detectionCounter;
+    public List<WaveformData> waves;
 
 	// Use this for initialization
 	void Awake () {
@@ -15,28 +21,58 @@ public class SwallowDetector : MonoBehaviour {
             DontDestroyOnLoad(gameObject);
             Instance = this;
         }
-
         noiseSample = new List<float>();
+        waves = new List<WaveformData>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        if (noiseSample.Count < noiseSampleMax) {
-            sampleNoise();
-        }
-        detect();
-	}
-
-    void detect() {
+        sampleNoise();
+        // every 1000 frames
         if ((detectionCounter % 1000) == 0) {
             updateStats();
+            // if it changed too much, get rid of the first quarter
             if (Mathf.Abs(oldSD - noiseSD) > threshold) {
-                // take out the first quarter of the data
                 noiseSample.RemoveRange(0, noiseSampleMax / 4);
+            } else {
+                float upperThreshold = noiseAV + (noiseSD * 2);
+                float maxElement = 0.0f;
+                int maxElementIndex = 0;
+                bool swallowOccured = false;
+                // if any element is over two SDs
+                for (int i = 0; i < noiseSample.Count; i++) {
+                    if (noiseSample[i] > upperThreshold) {
+                        swallowOccured = true;
+                    }
+                    if (noiseSample[i] > maxElement) {
+                        maxElement = noiseSample[i];
+                        maxElementIndex = i;
+                    }
+                }
+
+                // if there was a swallow, go out and find the parameters
+                if (swallowOccured) {
+                    findSwallowingLimits(maxElementIndex);
+                }
             }
         }
+    }
 
-    
+    void findSwallowingLimits(int indexOfHighest) {
+        int leftIndex = indexOfHighest-1;
+        int rightIndex = indexOfHighest+1;
+        // go left until it stops getting closer to average
+        while (noiseSample[leftIndex] < noiseSample[leftIndex+1]) {
+            leftIndex--;
+        }
+        // go right until it stops getting closer to average
+        while (noiseSample[rightIndex] > noiseSample[rightIndex-1]) {
+            rightIndex++;
+        }
+        WaveformData wd = new WaveformData();
+        wd.highestValue = noiseSample[indexOfHighest];
+        wd.duration = rightIndex - leftIndex;
+        waves.Add(wd);
     }
 
     void sampleNoise() {

@@ -103,6 +103,7 @@ public class GraphController : MonoBehaviour {
     public void updateCurrentValue(float value)
     {
         previousValue = currentValue;
+        currentValue = value/1023.0f * 200.0f;
         currentValue = value;
     } 
 }
