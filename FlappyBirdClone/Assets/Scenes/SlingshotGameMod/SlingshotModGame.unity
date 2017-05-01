@@ -4068,7 +4068,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -6225,7 +6225,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -6426,7 +6426,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -6806,7 +6806,7 @@ Prefab:
     - target: {fileID: 114249863678259828, guid: 0106cfe227601f44891cac1df083377d,
         type: 2}
       propertyPath: m_Color.a
-      value: 0.819
+      value: 0.688
       objectReference: {fileID: 0}
     - target: {fileID: 114249863678259828, guid: 0106cfe227601f44891cac1df083377d,
         type: 2}
@@ -6816,12 +6816,12 @@ Prefab:
     - target: {fileID: 114249863678259828, guid: 0106cfe227601f44891cac1df083377d,
         type: 2}
       propertyPath: m_Color.g
-      value: 0.108265705
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114249863678259828, guid: 0106cfe227601f44891cac1df083377d,
         type: 2}
       propertyPath: m_Color.b
-      value: 0.25735295
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114225812789932460, guid: 0106cfe227601f44891cac1df083377d,
         type: 2}
@@ -6961,7 +6961,7 @@ Prefab:
     - target: {fileID: 114192473985321186, guid: 0106cfe227601f44891cac1df083377d,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
-      value: 6
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 114709579200737158, guid: 0106cfe227601f44891cac1df083377d,
         type: 2}
@@ -6992,6 +6992,51 @@ Prefab:
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 114362377291942428, guid: 0106cfe227601f44891cac1df083377d,
+        type: 2}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114362377291942428, guid: 0106cfe227601f44891cac1df083377d,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114362377291942428, guid: 0106cfe227601f44891cac1df083377d,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114903058201145242, guid: 0106cfe227601f44891cac1df083377d,
+        type: 2}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114903058201145242, guid: 0106cfe227601f44891cac1df083377d,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114903058201145242, guid: 0106cfe227601f44891cac1df083377d,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114186114263435342, guid: 0106cfe227601f44891cac1df083377d,
+        type: 2}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114186114263435342, guid: 0106cfe227601f44891cac1df083377d,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114186114263435342, guid: 0106cfe227601f44891cac1df083377d,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0106cfe227601f44891cac1df083377d, type: 2}
@@ -7304,7 +7349,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -7456,7 +7501,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -10453,7 +10498,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
