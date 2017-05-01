@@ -17,6 +17,9 @@ public class GameSettingsControl : MonoBehaviour
     public float score;
     public float bestSwallow;
 
+    public float averageSwallowPeak;
+    public float averageSwallowDuration;
+
     void Awake()
     {
         if (Instance == null)
@@ -28,5 +31,10 @@ public class GameSettingsControl : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    void updateRunStats() {
+        averageSwallowDuration = SwallowDetector.Instance.getAvgDuration();
+        averageSwallowPeak = SwallowDetector.Instance.getAvgSwallowPeak();
     }
 }
