@@ -5209,7 +5209,7 @@ GameObject:
   - component: {fileID: 927876374}
   - component: {fileID: 927876377}
   m_Layer: 5
-  m_Name: TowerTumbleButton
+  m_Name: TowerTumbleBeachButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6466,7 +6466,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Tower Tumble
+  m_Text: Tower Tumble Beach Edition
 --- !u!222 &1247456120
 CanvasRenderer:
   m_ObjectHideFlags: 0
