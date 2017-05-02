@@ -1487,7 +1487,6 @@ GameObject:
   - component: {fileID: 195699970}
   - component: {fileID: 195699973}
   - component: {fileID: 195699972}
-  - component: {fileID: 195699971}
   m_Layer: 5
   m_Name: ScoreText
   m_TagString: Untagged
@@ -1514,18 +1513,6 @@ RectTransform:
   m_AnchoredPosition: {x: 16.3, y: -85}
   m_SizeDelta: {x: 150, y: 50}
   m_Pivot: {x: 0.5, y: 1}
---- !u!114 &195699971
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114626297522292906, guid: 6b70c48dac5282b4c85c0f7cd4b2bd49,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 195699969}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4b260196211b4945a585bf2994d9e5b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &195699972
 MonoBehaviour:
   m_ObjectHideFlags: 0
