@@ -1689,7 +1689,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 82889578}
   m_LocalRotation: {x: 0.050033487, y: 0.62947196, z: 0.040672746, w: -0.7743433}
-  m_LocalPosition: {x: -49.199497, y: -67.58, z: 1.3593826}
+  m_LocalPosition: {x: -51.842613, y: -54.210003, z: 1.910778}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -4872,6 +4872,8 @@ MonoBehaviour:
   continousGameplay: 0
   score: 0
   bestSwallow: 0
+  averageSwallowPeak: 0
+  averageSwallowDuration: 0
 --- !u!4 &225808193
 Transform:
   m_ObjectHideFlags: 0
@@ -4911,6 +4913,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbe558b3eb88c704580c769155b11b3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  noiseSampleMax: 500
+  noiseAV: 0
+  noiseSD: 0
 --- !u!1 &231468495
 GameObject:
   m_ObjectHideFlags: 0
@@ -7711,6 +7716,7 @@ GameObject:
   - component: {fileID: 389664302}
   - component: {fileID: 389664301}
   - component: {fileID: 389664303}
+  - component: {fileID: 389664304}
   m_Layer: 0
   m_Name: Balloon
   m_TagString: Player
@@ -7725,7 +7731,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 389664297}
   m_LocalRotation: {x: -0, y: 0.10265326, z: -0, w: 0.99471724}
-  m_LocalPosition: {x: -111, y: 22.7, z: -7.2}
+  m_LocalPosition: {x: -111, y: 12.2, z: -7.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 141172055}
@@ -7784,7 +7790,7 @@ SphereCollider:
   m_GameObject: {fileID: 389664297}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 5.08
   m_Center: {x: 0, y: 10.63, z: 0}
@@ -7800,15 +7806,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TokenObjects:
-  - {fileID: 1345448366717174, guid: 36cc40b8073ae0d4a91b1612c7342255, type: 2}
-  - {fileID: 1345448366717174, guid: 36cc40b8073ae0d4a91b1612c7342255, type: 2}
+  - {fileID: 100000, guid: 82dc6fcb01bc45d41b96734204421e24, type: 2}
+  - {fileID: 100000, guid: c781e96b88954114eb14cef8153a155e, type: 2}
   - {fileID: 1345448366717174, guid: 36cc40b8073ae0d4a91b1612c7342255, type: 2}
   timeMin: 2
   timeMax: 2
   coinCount: 0
-  lowSpawnHeight: 10
-  medSpawnHeight: 20
-  highSpawnHeight: 30
+  lowSpawnHeight: 20
+  medSpawnHeight: 30
+  highSpawnHeight: 40
+--- !u!136 &389664304
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 389664297}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 6.16
+  m_Height: 23
+  m_Direction: 1
+  m_Center: {x: 0, y: 11.84, z: 0}
 --- !u!1001 &390603447
 Prefab:
   m_ObjectHideFlags: 0
@@ -15156,7 +15175,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 758995957}
   m_LocalRotation: {x: 0.050033487, y: 0.62947196, z: 0.040672746, w: -0.7743433}
-  m_LocalPosition: {x: -49.199497, y: -67.58, z: 1.3593826}
+  m_LocalPosition: {x: -51.842613, y: -64.71, z: 1.910778}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -27546,7 +27565,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1395057351}
   m_LocalRotation: {x: 0.050033487, y: 0.62947196, z: 0.040672746, w: -0.7743433}
-  m_LocalPosition: {x: -49.199497, y: -67.58, z: 1.3593826}
+  m_LocalPosition: {x: -51.842613, y: -54.210003, z: 1.910778}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -30811,7 +30830,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1565595987}
   m_LocalRotation: {x: 0.04559396, y: -0.7056353, z: 0.045593973, w: 0.7056353}
-  m_LocalPosition: {x: 58.75002, y: 41.02, z: 21.000008}
+  m_LocalPosition: {x: 56.05, y: 38.15, z: 21}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 389664298}
@@ -34580,7 +34599,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1747343181}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -106.7, y: 31.18, z: 10}
+  m_LocalPosition: {x: -106.7, y: 19.2, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1004668667}

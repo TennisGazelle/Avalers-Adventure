@@ -6,8 +6,9 @@ public class RotateAndBobScript : MonoBehaviour {
     public float period;
     public float amplitude;
     public float offsetInY;
-
+    public AudioClip collectSound; 
     public float constantYOffset;
+    public int points = 10;
 
 	// Use this for initialization
 	void Start () {
@@ -23,7 +24,8 @@ public class RotateAndBobScript : MonoBehaviour {
 	}
 
     void OnTriggerEnter(Collider collector) {
-        ScoreManagerScript.Score++;
+        AudioSource.PlayClipAtPoint(collectSound, transform.position);
+        ScoreManagerScript.Score += points;
         Destroy(gameObject);
     }
 }

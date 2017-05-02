@@ -18,7 +18,7 @@ public class BalloonMovement : MonoBehaviour {
         rb = GetComponent<Rigidbody>();
         winningForce = new Vector3(0,5000,0);
         lowPosY = transform.position.y;
-        highPosY = lowPosY + 10;
+        highPosY = lowPosY + 22;
 	}
 	
 	// Update is called once per frame

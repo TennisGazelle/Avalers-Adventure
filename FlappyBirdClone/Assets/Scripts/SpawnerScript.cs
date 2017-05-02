@@ -15,9 +15,9 @@ public class SpawnerScript : MonoBehaviour
     public float timeMin = 2f;
     public float timeMax = 2f;
     public float coinCount = 0;
-    public float lowSpawnHeight = 10;
+    public float lowSpawnHeight = 5;
     public float medSpawnHeight = 20f;
-    public float highSpawnHeight = 30f;
+    public float highSpawnHeight = 35f;
 
     private float spawnDistance = 50.0f;
 
@@ -71,9 +71,9 @@ public class SpawnerScript : MonoBehaviour
         for (int i = 1; i < numToSpawn + 1; i++)
         {
             Vector3 sub = new Vector3(origin.x + direction.x / numToSpawn * i, waypoint.position.y + lowSpawnHeight, origin.z + direction.z / numToSpawn * i);
-            SpawnedObjects.Add(Instantiate(TokenObjects[0], sub, this.transform.rotation));
+            SpawnedObjects.Add(Instantiate(TokenObjects[2], sub, this.transform.rotation));
             sub = new Vector3(origin.x + direction.x / numToSpawn * i, waypoint.position.y + medSpawnHeight, origin.z + direction.z / numToSpawn * i);
-            SpawnedObjects.Add(Instantiate(TokenObjects[0], sub, this.transform.rotation));
+            SpawnedObjects.Add(Instantiate(TokenObjects[1], sub, this.transform.rotation));
             sub = new Vector3(origin.x + direction.x / numToSpawn * i, waypoint.position.y + highSpawnHeight, origin.z + direction.z / numToSpawn * i);
             SpawnedObjects.Add(Instantiate(TokenObjects[0], sub, this.transform.rotation));
         }
