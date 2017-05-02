@@ -6589,8 +6589,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1246641169}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.9, y: -0.4, z: 0}
-  m_LocalScale: {x: 4.7502856, y: 3.0659854, z: 1}
+  m_LocalPosition: {x: 2.6, y: -0.8, z: 0}
+  m_LocalScale: {x: 5.4577, y: 2.9221046, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
@@ -7767,6 +7767,8 @@ MonoBehaviour:
   continousGameplay: 0
   score: 0
   bestSwallow: 0
+  averageSwallowPeak: 0
+  averageSwallowDuration: 0
 --- !u!4 &1541864376
 Transform:
   m_ObjectHideFlags: 0
