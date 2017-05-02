@@ -2,8 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class SpawnerScript : MonoBehaviour
-{
+public class SpawnerScript : MonoBehaviour {
     private GameObject SpawnObject;
     private List<GameObject> SpawnedObjects;
     public GameObject[] TokenObjects;
@@ -22,7 +21,7 @@ public class SpawnerScript : MonoBehaviour
     private float spawnDistance = 50.0f;
     private float mendelsohnSpawnDist = 10f;
 
-    private GameMode gameMode = GameMode.Random;
+    private GameMode gameMode = GameMode.Typical;
 
     // Use this for initialization
     void Start()
@@ -33,6 +32,7 @@ public class SpawnerScript : MonoBehaviour
             g.transform.position = new Vector3(0, 0, 0);
         }
         SpawnObject = TokenObjects[Random.Range(0, TokenObjects.Length)];
+        SetGameMode(GameSettingsControl.Instance.mode);
     }
 
     void Update() {

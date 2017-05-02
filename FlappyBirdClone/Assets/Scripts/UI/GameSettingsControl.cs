@@ -10,9 +10,9 @@ public class GameSettingsControl : MonoBehaviour
     public float baselinePercentage;
     public float restDuration;
     public float swallowDuration;
-    public bool continousGameplay; 
+    public bool continousGameplay;
 
-    public enum SwallowingType { BALLISTIC_TYPICAL, BALLISTIC_EFFORTFUL, MENDELSOHN };
+    public GameMode mode;
 
     public float score;
     public float bestSwallow;
@@ -33,8 +33,12 @@ public class GameSettingsControl : MonoBehaviour
         }
     }
 
-    void updateRunStats() {
+    public void updateRunStats() {
         averageSwallowDuration = SwallowDetector.Instance.getAvgDuration();
         averageSwallowPeak = SwallowDetector.Instance.getAvgSwallowPeak();
+    }
+
+    public void SetGameMode(GameMode gameMode) {
+        mode = gameMode;
     }
 }

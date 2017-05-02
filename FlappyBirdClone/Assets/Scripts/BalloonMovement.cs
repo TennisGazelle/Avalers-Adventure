@@ -25,7 +25,8 @@ public class BalloonMovement : MonoBehaviour {
 	void FixedUpdate () {
         // transform.RotateAround(Vector3.zero, Vector3.up, 2.5f * Time.deltaTime);
         MoveToWaypoint();
-        if (Input.GetKey("space") || stream.hasTypicalHappened())
+        float threshold = GameSettingsControl.Instance.baselinePercentage * GameSettingsControl.Instance.baselineSwallow * 0.01f;
+        if (Input.GetKey("space") || ReceieveUDPStream.lastnum > threshold)
         {
             //rb.AddForce(winningForce, ForceMode.Force);
             MoveHigh();
