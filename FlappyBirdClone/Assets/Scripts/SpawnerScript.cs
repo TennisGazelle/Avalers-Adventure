@@ -20,8 +20,9 @@ public class SpawnerScript : MonoBehaviour
     public float highSpawnHeight = 35f;
 
     private float spawnDistance = 50.0f;
+    private float mendelsohnSpawnDist = 10f;
 
-    private GameMode gameMode = GameMode.Typical;
+    private GameMode gameMode = GameMode.Mendelsohn;
 
     // Use this for initialization
     void Start()
@@ -58,7 +59,41 @@ public class SpawnerScript : MonoBehaviour
 
     public void SpawnNextSet(Transform waypoint)
     {
-        SpawnTypical(waypoint);
+       switch(gameMode)
+        {
+            case GameMode.Mendelsohn:
+                SpawnMendelsohn(waypoint);
+                break;
+            case GameMode.Typical:
+                SpawnTypical(waypoint);
+                break;
+        }
+     
+    }
+
+    private void SpawnMendelsohn(Transform waypoint)
+    {
+        Vector3 origin = GetComponent<Transform>().position;
+        float distance = Vector3.Distance(origin, waypoint.position);
+        float mendelsohnDist = Mathf.Min(distance, 60f);
+        int numToSpawn = (int)(distance / mendelsohnSpawnDist);
+        int numToSpawnMendelsohn = (int)(mendelsohnDist / mendelsohnSpawnDist);
+        Vector3 direction = waypoint.position - origin;
+
+
+        for (int i = 1; i < numToSpawn + 1; i++)
+        {
+            if (numToSpawn - i + numToSpawnMendelsohn/2 > numToSpawnMendelsohn 
+                && numToSpawn - i - numToSpawnMendelsohn/2 < numToSpawnMendelsohn )
+            {
+                Vector3 sub = new Vector3(origin.x + direction.x / numToSpawn * i, waypoint.position.y + lowSpawnHeight, origin.z + direction.z / numToSpawn * i);
+                SpawnedObjects.Add(Instantiate(TokenObjects[2], sub, this.transform.rotation));
+                sub = new Vector3(origin.x + direction.x / numToSpawn * i, waypoint.position.y + medSpawnHeight, origin.z + direction.z / numToSpawn * i);
+                SpawnedObjects.Add(Instantiate(TokenObjects[1], sub, this.transform.rotation));
+                sub = new Vector3(origin.x + direction.x / numToSpawn * i, waypoint.position.y + highSpawnHeight, origin.z + direction.z / numToSpawn * i);
+                SpawnedObjects.Add(Instantiate(TokenObjects[0], sub, this.transform.rotation));
+            }
+        }
     }
 
     private void SpawnTypical(Transform waypoint)
