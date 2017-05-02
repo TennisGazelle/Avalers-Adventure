@@ -116,6 +116,7 @@
     <Compile Include="Assets\Scripts\ObjectDeleteTimer.cs" />
     <Compile Include="Assets\Scripts\PipeDestroyerScript.cs" />
     <Compile Include="Assets\Scripts\RandomBackgroundScript.cs" />
+    <Compile Include="Assets\Scripts\RandomMovementType.cs" />
     <Compile Include="Assets\Scripts\ReceieveUDPStream.cs" />
     <Compile Include="Assets\Scripts\RepeatingBackground.cs" />
     <Compile Include="Assets\Scripts\RotatingBehavior.cs" />

@@ -22,7 +22,7 @@ public class SpawnerScript : MonoBehaviour
     private float spawnDistance = 50.0f;
     private float mendelsohnSpawnDist = 10f;
 
-    private GameMode gameMode = GameMode.Mendelsohn;
+    private GameMode gameMode = GameMode.Random;
 
     // Use this for initialization
     void Start()
@@ -66,6 +66,9 @@ public class SpawnerScript : MonoBehaviour
                 break;
             case GameMode.Typical:
                 SpawnTypical(waypoint);
+                break;
+            case GameMode.Random:
+                SpawnRandom(waypoint);
                 break;
         }
      
@@ -111,6 +114,36 @@ public class SpawnerScript : MonoBehaviour
             SpawnedObjects.Add(Instantiate(TokenObjects[1], sub, this.transform.rotation));
             sub = new Vector3(origin.x + direction.x / numToSpawn * i, waypoint.position.y + highSpawnHeight, origin.z + direction.z / numToSpawn * i);
             SpawnedObjects.Add(Instantiate(TokenObjects[0], sub, this.transform.rotation));
+        }
+    }
+
+    private void SpawnRandom(Transform waypoint)
+    {
+        Vector3 origin = GetComponent<Transform>().position;
+        float distance = Vector3.Distance(origin, waypoint.position);
+        int numToSpawn = (int)(distance / spawnDistance);
+        Vector3 direction = waypoint.position - origin;
+
+        for (int i = 1; i < numToSpawn + 1; i++)
+        {
+            Vector3 sub = new Vector3(origin.x + direction.x / numToSpawn * i, waypoint.position.y + lowSpawnHeight, origin.z + direction.z / numToSpawn * i);
+            if (Random.Range(0, 4) != 1)
+            {
+                SpawnedObjects.Add(Instantiate(TokenObjects[Random.Range(0, 3)], sub, this.transform.rotation));
+                SpawnedObjects[SpawnedObjects.Count - 1].GetComponent<RotateAndBobScript>().RandomizeMovement();
+            }
+            if (Random.Range(0, 4) != 1)
+            {
+                sub = new Vector3(origin.x + direction.x / numToSpawn * i, waypoint.position.y + medSpawnHeight, origin.z + direction.z / numToSpawn * i);
+                SpawnedObjects.Add(Instantiate(TokenObjects[Random.Range(0,3)], sub, this.transform.rotation));
+                SpawnedObjects[SpawnedObjects.Count - 1].GetComponent<RotateAndBobScript>().RandomizeMovement();
+            }
+            if (Random.Range(0, 4) != 1)
+            {
+                sub = new Vector3(origin.x + direction.x / numToSpawn * i, waypoint.position.y + highSpawnHeight, origin.z + direction.z / numToSpawn * i);
+                SpawnedObjects.Add(Instantiate(TokenObjects[Random.Range(0, 3)], sub, this.transform.rotation));
+                SpawnedObjects[SpawnedObjects.Count - 1].GetComponent<RotateAndBobScript>().RandomizeMovement();
+            }
         }
     }
 
