@@ -93,10 +93,10 @@ public class ProjectileDragging : MonoBehaviour {
         {
             commandText.text = "Swallow!";
             // check udp input, if larger than noise.. call swallowInput
-            /*if (GameObject.Find("GlobalGameData").GetComponent<ReceieveUDPStream>().hasTypicalHappened()){
-             * swallowInput(ReceieveUDPStream.lastnum);
-             * }
-             */
+            if (GameObject.Find("GlobalGameData").GetComponent<ReceieveUDPStream>().hasTypicalHappened()){
+              swallowInput(ReceieveUDPStream.lastnum);
+              }
+
             swallowingWindowTimer -= Time.deltaTime;
             return;
         }
