@@ -1,77 +1,24 @@
-# Senior Project 2016
+# Avalar's Adventure
 
-### Authors
+## **Description**
+Although generally overlooked as a normal bodily function, the ability to swallow is quite important for the human experience; it enables eating, drinking, and salivating. However, there are people whose ability to swallow is impeded due to an accident, illness, or predisposed swallowing disorder. For patients undergoing Speech Pathology Therapy, there are many exercises designed to train and strengthen muscles and tendons. To aid in this therapy, games visually report feedback received from electrical signals from a sensor attached to the patient’s throat. The team is creating a game suite that is well suited for various patient demographics. The team has prototyped several of the features of the suite. These features will be tested against several acceptance criteria and this document intends to detail the testing strategy and plan. This project aims to create a game suite that uses these signals to play in order to improve the therapy experience for both the patient and the therapist. 
 
-+ Catherine Pollock
-+ Daniel Lopez
-+ Gunnar Wambaugh
-+ Luis Almanzar
+#### Video
+#### Presentations
+#### Poster
+#### Specification and Design Documents
 
-### Simulator
-#### Installation
-Requires python, python-tk, and python library 'MatPlotLib' which can be installed by typing:
+## **About**
+Computer Science 426 Senior Projects at the University of Reno, Nevada. Spring 2017.
 
-```bash
-sudo apt-get install python python-tk python-matplotlib
-```
+#### Team #5
+* Catherine Pollock
+* Daniel Lopez
+* Gunnar Wambaugh
+* Luis Almanzar
 
-### Running
-To run as a program:
-
-```bash
-cd Simulator/
-python numGen.py
-```
-
-This runs on a set number of iterations, but this will be modified to run indefinitely, and to use keyboard input for waveform modification. Network testing is still to be implemented.
-See content of `numGen.py` for data script details.
-
-### Therapy Games
-
-### Folder Structure:
-
-Folder Name | Contents
- ---------- | --------
-/AnimationController/ | Holds all animation controller files.
-/Animations/ | Holds all animations for character rigs.
-/Objects/ | Holds all .fbx files.
-/Originals/ | Holds all .obj, .mtl, and texture files.
-/Prefabs/ | Holds all Unity finished assets.
-/Scenes/ | Holds all scenes/levels of the game.
-/Scripts/ | Holds all game scripts.
-
-### Instructions on how to branch and complete project
-Assuming there are preexisting branches named `master` and `develop` and you wanted to *activate* the develop branch you can use this command.  
-
-``` bash
-git checkout develop
-```
-Note that all your file changes, if any that you have made on master will be gone if not committed.  That being said, do not commit anything to master from here on out.  All commits will be made to your own branch or `develop`.
-
-Let's pretend that I'm about to pull a ticket from Trello and I'm going to make some changes, I also wish to encapsulate every change into a branch.  For the sake of example, let's pretend I'm working on the camera settings.  These will thus be binary files.
-
-1. I must declare that new branch.
-``` bash
-git checkout -b camera
-```
-This both creates and checks out the branch.  The same can be done in two separate calls, with just:
-``` bash
-git branch camera
-git checkout camera
-```
-
-2. Make your changes and commit them under this new branch.  To ensure that this is happening, look at the very first line that shows when hitting `git status`.  It will say something like `on branch master`.
-
-3. Once you have finished your task, attach the latest commit to the corresponding card on Trello.
-
-4. When merging your approved branch to the `develop` branch (and eventually when merging `develop` to `master`), checkout the branch to which you want to merge, and then merge that.
-```bash
-git checkout develop
-git merge camera
-```
-
-5. In the event that `develop` was updated while your branch was still under construction, you need to __rebase__ you branch.  This merely means that the commit from which you branch stems now needs to be updated to the most recent commit in *that* branch.
-```bash
-git checkout camera
-git rebase develop
-```
+#### Project Advisors
+* Dr. Fred Harris
+* Dr. Kristine Galek
+* Kathryn Krings
+* Amanda Morrissey
