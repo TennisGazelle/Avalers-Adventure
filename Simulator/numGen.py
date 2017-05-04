@@ -7,6 +7,9 @@ import matplotlib.pyplot as plt
 import sys
 import select
 import termios
+import KeyPoller
+
+import SerialManager
 
 #declare variables
 host = '127.0.0.1'
@@ -90,7 +93,7 @@ class GraphManager:
 			# update the axis
 			ymin = float(min(self.dataBuffer))-1
 			ymax = float(max(self.dataBuffer))+10
-			#plt.ylim([ymin, ymax])
+			plt.ylim([ymin, ymax])
 
 			# add the new datapoint to the buffer
 			self.dataBuffer.append(point)
@@ -104,15 +107,15 @@ class GraphManager:
 			plt.draw()
 
 	def startTypicalSwallow(self):
-		print "starting typical swallow"
+		print ("starting typical swallow")
 		self.swallows['typical']['counter'] = 0
 
 	def startEffortfulSwallow(self):
-		print "starting effortful swallow"
+		print ("starting effortful swallow")
 		self.swallows['effortful']['counter'] = 0
 
 	def startMendelsohnSwallow(self):
-		print "starting mendelsohn swallow"
+		print ("starting mendelsohn swallow")
 		for i in range(1,4):
 			key = "mendelsohn{}".format(i)
 			self.swallows[key]['counter'] = 0
@@ -139,30 +142,6 @@ class GraphManager:
 	def resumeGraph(self):
 		self.pause = False
 
-class KeyPoller():
-	"""docstring for KeyPoller
-		This was totally stolen from:
-		http://stackoverflow.com/questions/13207678/whats-the-simplest-way-of-detecting-keyboard-input-in-python-from-the-terminal"""
-	def __enter__(self):
-		# Save the terminal settings
-		self.fd = sys.stdin.fileno()
-		self.new_term = termios.tcgetattr(self.fd)
-		self.old_term = termios.tcgetattr(self.fd)
-
-		# New terminal setting unbuffered
-		self.new_term[3] = (self.new_term[3] & ~termios.ICANON & ~termios.ECHO)
-		termios.tcsetattr(self.fd, termios.TCSAFLUSH, self.new_term)
-		return self
-
-	def __exit__(self):
-		termios.tcsetattr(self.fd, termios.TCSAFLUSH, self.old_term)
-
-	def poll(self):
-		dr, dw, de = select.select([sys.stdin], [], [], 0)
-		if not dr == []:
-			return sys.stdin.read(1)
-		return None
-
 def sendData(point):
 	packetData = str(point).encode('ascii') #encode packet to bytes
 	primarySocket.sendto(packetData, (host, port)) #send packet
@@ -174,10 +153,15 @@ def main():
 
 	graph = GraphManager([0] * buffer_size)
 	counter = 0
-	kp = KeyPoller()
+	kp = KeyPoller.KeyPoller()
+	se = SerialManager.SerialManager()
+
 	while 1:
 		# get the data point, send it and draw it
-		swallowData = graph.getDataPoint()
+		swallowData = se.getNextValue()
+		if swallowData is None:
+			swallowData = graph.getDataPoint()
+
 		sendData(swallowData)
 		graph.updateGraph(swallowData)
 
@@ -187,23 +171,32 @@ def main():
 		c = kp.poll()
 		if c is not None:
 			# if it is, pick the approrpiate swallow and initialize counter
-			print 'keyboard detected as {}'.format(c)
-			if c == 't' or c == 'T':
+			print ('keyboard detected as {}'.format(c))
+			if c == 't' or c == 'T' or counter % 50 == 0:
 				graph.startTypicalSwallow()
 			elif c == 'e' or c == 'E':
 				graph.startEffortfulSwallow()
-			elif c == 'm' or c == 'M':
+			elif c == 'm' or c == 'M' or (counter % 100) == 0:
 				graph.startMendelsohnSwallow()
 			elif c == 'p' or c == 'P':
 				graph.pauseGraph()
 			elif c == 'r' or c == 'R':
 				graph.resumeGraph()
+			elif c == 'a' or c == 'A':
+				se.attemptConnection()
 			elif c == 'q' or c == 'Q':
 				break
 
 		#print counter, swallowData
 		# wait
 		#time.sleep(.1)
+
+# def emergencyMain():
+# 	ser = SerialManager.SerialManager()
+# 	while True:
+# 		value = ser.getNextValue().lstrip("b'").rstrip("\\r\\n'")
+# 		sendData(value)
+
 
 if __name__ == '__main__':
 	main()

@@ -10,6 +10,15 @@ public class GameSettingsControl : MonoBehaviour
     public float baselinePercentage;
     public float restDuration;
     public float swallowDuration;
+    public bool continousGameplay;
+
+    public GameMode mode;
+
+    public float score;
+    public float bestSwallow;
+
+    public float averageSwallowPeak;
+    public float averageSwallowDuration;
 
     void Awake()
     {
@@ -22,5 +31,14 @@ public class GameSettingsControl : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    public void updateRunStats() {
+        averageSwallowDuration = SwallowDetector.Instance.getAvgDuration();
+        averageSwallowPeak = SwallowDetector.Instance.getAvgSwallowPeak();
+    }
+
+    public void SetGameMode(GameMode gameMode) {
+        mode = gameMode;
     }
 }

@@ -10,6 +10,7 @@ using System.Threading;
 public class ReceieveUDPStream : MonoBehaviour {
     public string iPAddress = "127.0.0.1";
     public int portNumber = 3000;
+    private float highestValue = 1023.0f;
 
     public GraphController graph;
 
@@ -20,10 +21,14 @@ public class ReceieveUDPStream : MonoBehaviour {
     string allReceivedPackets = "";
 
     public ArrayList incomingData;
-    public float lastnum = 0;
+    public static float lastnum = 0;
+
+    private bool typicalCheck, lastTypicalCheck;
 
     // Use this for initialization
     void Start() {
+        typicalCheck = false;
+        lastTypicalCheck = false;
         Init();
     }
 
@@ -58,9 +63,10 @@ public class ReceieveUDPStream : MonoBehaviour {
                 lastReceivedPacket = text;
                 allReceivedPackets = allReceivedPackets + text;
 
-                graph.updateCurrentValue(float.Parse(text));
-                incomingData.Add(float.Parse(text));
-                lastnum = float.Parse(text);
+                float normalizedValue = float.Parse(text);
+                graph.updateCurrentValue(normalizedValue);
+                incomingData.Add(normalizedValue);
+                lastnum = normalizedValue;
             } catch (Exception err) {
                 print(err.ToString());
             }
@@ -77,11 +83,24 @@ public class ReceieveUDPStream : MonoBehaviour {
         return lastReceivedPacket;
     }
 
+    
     public bool hasTypicalHappened() {
-        if (lastnum > 40) {
+        //return hasTypicalStaticHappened();
+        typicalCheck = lastnum > GameSettingsControl.Instance.baselineSwallow;
+
+        if (typicalCheck == lastTypicalCheck) {
+            return false;
+        } else if (typicalCheck) {
+            lastTypicalCheck = true;
             return true;
+        } else {
+            lastTypicalCheck = false;
+            return false;
         }
-        return false;
+    }
+
+    public bool hasTypicalStaticHappened() {
+        return lastnum > GameSettingsControl.Instance.baselineSwallow;
     }
 
     public bool hasEffortfulHappened() {

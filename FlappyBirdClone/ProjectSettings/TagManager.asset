@@ -10,6 +10,7 @@ TagManager:
   - Floor
   - Background
   - Water
+  - Damager
   layers:
   - Default
   - TransparentFX
@@ -55,4 +56,7 @@ TagManager:
     locked: 0
   - name: Intro GUI
     uniqueID: 3798174681
+    locked: 0
+  - name: SlingshotForeground
+    uniqueID: 1448588259
     locked: 0
